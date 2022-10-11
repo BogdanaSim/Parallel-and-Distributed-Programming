@@ -26,11 +26,11 @@ namespace Lab1
             return products;
         }
 
-        public void Add(Product product, int quanity)
+        public void Add(Product product, int quantity)
         {
             if (this._products.ContainsKey(product))
             {
-                this._products[product] = this._products[product] + quanity;
+                this._products[product] = this._products[product] + quantity;
 
             }
             else
