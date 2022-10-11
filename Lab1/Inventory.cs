@@ -36,7 +36,7 @@ namespace Lab1
             }
             else
             {
-                this._products.Add(product, quanity);
+                this._products.Add(product, quantity);
             }
         }
     }

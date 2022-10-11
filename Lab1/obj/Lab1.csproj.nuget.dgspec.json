@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\F\\Parallel-and-Distributed-Programming\\Lab1\\Lab1\\Lab1.csproj": {}
+    "C:\\F\\Parallel-and-Distributed-Programming\\Lab1\\Lab1.csproj": {}
   },
   "projects": {
-    "C:\\F\\Parallel-and-Distributed-Programming\\Lab1\\Lab1\\Lab1.csproj": {
+    "C:\\F\\Parallel-and-Distributed-Programming\\Lab1\\Lab1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\F\\Parallel-and-Distributed-Programming\\Lab1\\Lab1\\Lab1.csproj",
+        "projectUniqueName": "C:\\F\\Parallel-and-Distributed-Programming\\Lab1\\Lab1.csproj",
         "projectName": "Lab1",
-        "projectPath": "C:\\F\\Parallel-and-Distributed-Programming\\Lab1\\Lab1\\Lab1.csproj",
+        "projectPath": "C:\\F\\Parallel-and-Distributed-Programming\\Lab1\\Lab1.csproj",
         "packagesPath": "C:\\Users\\bogdanasimionica\\.nuget\\packages\\",
-        "outputPath": "C:\\F\\Parallel-and-Distributed-Programming\\Lab1\\Lab1\\obj\\",
+        "outputPath": "C:\\F\\Parallel-and-Distributed-Programming\\Lab1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
