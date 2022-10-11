@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Lab1
 {
-    public class Repository
+    public class Inventory
+        
     {
         private Dictionary<Product, int> _products = new Dictionary<Product, int>();
         
