@@ -71,10 +71,11 @@ namespace Lab1
             return bills;
         }
 
-        public static void Start(Sale sale)
+        public static void Start(Sale sale,int delay)
         {
             Dictionary<Product, int> op = new Dictionary<Product, int>();
             Random random = new Random();
+            lock (inventory) lock (bills) { 
             for (int i = 0; i < No_Operations; i++)
             {
                 int id = random.Next(0, productsList.Count - 1);
@@ -91,8 +92,9 @@ namespace Lab1
                 {
                     bills.Add(new Bill(op));
                 }
-
             }
+            }
+            Thread.Sleep(delay);
 
         }
 
@@ -121,7 +123,7 @@ namespace Lab1
             for (int i = 0; i < No_Threads; i++)
             {
                 Sale sale = new Sale(inventory, i);
-                ThreadStart thread = () => Start(sale);
+                ThreadStart thread = () => Start(sale,2000);
                 threads.Add(new Thread(thread));
 
             }
