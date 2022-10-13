@@ -8,14 +8,13 @@ namespace Lab1
 {
     public class Product
     {
-        private int id { get; set; }
-        private string name { get; set; }
-        private double price { get; set; }
+        public string Name { get; private set; }
+        public double Price { get; private set; }
 
         public Product(string name, double price)
         {
-            this.name = name;
-            this.price = price;
+            this.Name = name;
+            this.Price = price;
         }
     }
 
