@@ -85,7 +85,7 @@ namespace Lab1
             }
         }
 
-        public static void Start(Sale sale, int delay)
+        public async static void Start(Sale sale, int delay)
         {
             Dictionary<Product, int> op = new Dictionary<Product, int>();
             Random random = new Random();
@@ -133,7 +133,7 @@ namespace Lab1
 
         }
 
-        public static void Checker(int delay)
+        public async static void Checker(int delay)
         {
             while (true)
             {
@@ -146,8 +146,8 @@ namespace Lab1
                             //sum += bill.GetTotalPrice();
                             sum = Add(ref sum, bill.GetTotalPrice());
                         }
-                        Console.WriteLine("am = " + amountOfMoney + "; " + "sum = " + sum);
-                        Console.WriteLine("Checker: " + ((amountOfMoney.CompareTo(sum))));
+                        Console.WriteLine("am = " + Math.Round(amountOfMoney,5) + "; " + "sum = " + Math.Round(sum,5));
+                        Console.WriteLine("Checker: " + ((Math.Round(amountOfMoney,5).CompareTo(Math.Round(sum,5)))));
 
                     }
 
@@ -159,7 +159,7 @@ namespace Lab1
         {
             CreateProducts(productsList);
             inventory.GenerateLocks();
-            Task.Run(() => Checker(20));
+            Task.Run(() => Checker(3));
             for (int i = 0; i < No_Threads; i++)
             {
                 Sale sale = new Sale(inventory, i);
@@ -183,13 +183,13 @@ namespace Lab1
                     Console.WriteLine(e.Message);
                 }
             }
-            double sum = 0;
-            foreach (Bill bill in bills.ToList())
-            {
-                sum += bill.GetTotalPrice();
-            }
-            Console.WriteLine("am = " + amountOfMoney + "; " + "sum = " + sum);
-            Console.WriteLine("Checker: " + (amountOfMoney.CompareTo(sum)));
+            // double sum = 0;
+            //foreach (Bill bill in bills.ToList())
+            //{
+            //    sum += Add(ref sum, bill.GetTotalPrice());
+            //}
+            //Console.WriteLine("am = " + Math.Round(amountOfMoney, 5) + "; " + "sum = " + Math.Round(sum, 5));
+            //Console.WriteLine("Checker: " + ((Math.Round(amountOfMoney, 5).CompareTo(Math.Round(sum, 5)))));
 
         }
     }
