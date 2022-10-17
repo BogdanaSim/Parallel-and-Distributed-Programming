@@ -18,6 +18,7 @@ namespace Lab1
             double Total = 0;
             foreach (Product product in this.GetAll())
             {
+          
                 Total+=product.Price*this.GetQuantiyProduct(product);
             }
             return Total;

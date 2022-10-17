@@ -50,54 +50,54 @@ namespace Lab1
         public void AddToInventory(Product product, int quantity)
         {
 
-            try
-            {
-                Monitor.Enter(Inventory, ref IsLocked);
-                try
-                {
+            //try
+            //{
+            //    Monitor.Enter(Inventory, ref IsLocked);
+            //    try
+            //    {
                     Inventory.Add(product, quantity);
 
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
-            finally
-            {
-                if (IsLocked)
-                {
-                    Monitor.Exit(Inventory);
-                    IsLocked = false;
-                }
-            }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine(ex.Message);
+            //    }
+            //}
+            //finally
+            //{
+            //    if (IsLocked)
+            //    {
+            //        Monitor.Exit(Inventory);
+            //        IsLocked = false;
+            //    }
+           // }
         }
 
         public void RemoveFromInventory(Product product, int quantity)
         {
 
-            try
-            {
-                Monitor.Enter(Inventory, ref IsLocked);
+            //try
+            //{
+            //    Monitor.Enter(Inventory, ref IsLocked);
                 try
                 {
-                    Inventory.Remove(product, quantity);
-                    Console.WriteLine("Sale " + id + ": purchased " + product.Name + "; quantity -  " + Inventory.GetQuantiyProduct(product));
-                }
+            Inventory.Remove(product, quantity);
+            Console.WriteLine("Sale " + id + ": purchased " + product.Name + "; quantity -  " + Inventory.GetQuantiyProduct(product));
+        }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
-            }
-            finally
-            {
-                if (IsLocked)
-                {
-                    Monitor.Exit(Inventory);
-                    IsLocked = false;
-                }
-            }
-        }
+    //}
+    //finally
+    //{
+    //    if (IsLocked)
+    //    {
+    //        Monitor.Exit(Inventory);
+    //        IsLocked = false;
+    //    }
+    //}
+}
 
 
     }

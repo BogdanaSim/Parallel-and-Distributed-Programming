@@ -12,12 +12,13 @@ namespace Lab1
         private static readonly int No_Threads = 10;
         private static readonly int No_Operations = 2;
         private static readonly int No_Products = 100;
-        private static Dictionary<Product, int> productsList =new Dictionary<Product, int>();
+        private static Dictionary<Product, int> productsList = new Dictionary<Product, int>();
         private static Inventory inventory = new Inventory(productsList);
         private static List<Bill> bills = new List<Bill>();
         private static List<Sale> sales = new List<Sale>();
         private static List<Thread> threads = new List<Thread>();
         private static double amountOfMoney = 0;
+        private static readonly object locker = new object();
 
 
 
@@ -71,46 +72,76 @@ namespace Lab1
             return bills;
         }
 
-        public static void Start(Sale sale,int delay)
+        public static double Add(ref double location1, double value)
+        {
+            double newCurrentValue = location1;
+            while (true)
+            {
+                double currentValue = newCurrentValue;
+                double newValue = currentValue + value;
+                newCurrentValue = Interlocked.CompareExchange(ref location1, newValue, currentValue);
+                if (newCurrentValue.Equals(currentValue))
+                    return newValue;
+            }
+        }
+
+        public async static void Start(Sale sale, int delay)
         {
             Dictionary<Product, int> op = new Dictionary<Product, int>();
             Random random = new Random();
-            lock (inventory) lock (bills) { 
+            // lock (inventory) lock (bills) { 
             for (int i = 0; i < No_Operations; i++)
             {
                 int id = random.Next(0, productsList.Count - 1);
-                if (productsList.ElementAt(id).Value <= 0) continue;
-                int q = random.Next(0, productsList.ElementAt(id).Value + 1);
-                if (q > 0)
+                Product product = productsList.ElementAt(id).Key;
+                lock (product) lock(bills)
                 {
-                    op.Add(productsList.ElementAt(id).Key, q);
-                    amountOfMoney += productsList.ElementAt(id).Key.Price * q;
-                    sale.RemoveFromInventory(productsList.ElementAt(id).Key, q);
+                    if (productsList.ElementAt(id).Value <= 0) continue;
+                    int q = random.Next(0, productsList.ElementAt(id).Value + 1);
+                    if (q > 0)
+                    {
 
+                        op.Add(productsList.ElementAt(id).Key, q);
+                        Monitor.Enter(amountOfMoney);
+                        lock (locker)
+                        {
+                            amountOfMoney = Add(ref amountOfMoney, productsList.ElementAt(id).Key.Price * q);
+                        }
+                        
+                        // amountOfMoney += productsList.ElementAt(id).Key.Price * q;
+                        sale.RemoveFromInventory(productsList.ElementAt(id).Key, q);
+
+
+                    }
+                    if (op.Count > 0)
+                    {
+                        
+                            bills.Add(new Bill(op));
+                        
+                    }
                 }
-                if (op.Count > 0)
-                {
-                    bills.Add(new Bill(op));
-                }
+                //}
             }
-            }
-            Thread.Sleep(delay);
+            // Thread.Sleep(delay);
 
         }
 
-        public static void Checker(int delay)
+        public async static void Checker(int delay)
         {
             while (true)
             {
-                lock (inventory) lock(bills)
-                {
-                    double sum = 0;
-                    foreach (Bill bill in bills.ToList())
+                lock (bills) lock (locker)
                     {
-                        sum += bill.GetTotalPrice();
+
+                        double sum = 0;
+                        foreach (Bill bill in bills.ToList())
+                        {
+                            sum += bill.GetTotalPrice();
+                        }
+                        Console.WriteLine("am = " + amountOfMoney + "; " + "sum = " + sum);
+                        Console.WriteLine("Checker: " + (amountOfMoney != sum));
+
                     }
-                    Console.WriteLine("Checker: " + (amountOfMoney != sum));
-                }
 
                 Thread.Sleep(delay);
             }
@@ -119,11 +150,12 @@ namespace Lab1
         static void Main(string[] args)
         {
             CreateProducts(productsList);
+            inventory.GenerateLocks();
             Task.Run(() => Checker(10));
             for (int i = 0; i < No_Threads; i++)
             {
                 Sale sale = new Sale(inventory, i);
-                ThreadStart thread = () => Start(sale,2000);
+                ThreadStart thread = () => Start(sale, 2000);
                 threads.Add(new Thread(thread));
 
             }
@@ -143,6 +175,13 @@ namespace Lab1
                     Console.WriteLine(e.Message);
                 }
             }
+            double sum = 0;
+            foreach (Bill bill in bills.ToList())
+            {
+                sum += bill.GetTotalPrice();
+            }
+            Console.WriteLine("am = " + amountOfMoney + "; " + "sum = " + sum);
+            Console.WriteLine("Checker: " + (amountOfMoney != sum));
 
         }
     }
