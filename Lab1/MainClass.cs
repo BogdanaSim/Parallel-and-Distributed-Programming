@@ -159,7 +159,7 @@ namespace Lab1
         {
             CreateProducts(productsList);
             inventory.GenerateLocks();
-            Task.Run(() => Checker(3));
+            Task.Run(() => Checker(10));
             for (int i = 0; i < No_Threads; i++)
             {
                 Sale sale = new Sale(inventory, i);
