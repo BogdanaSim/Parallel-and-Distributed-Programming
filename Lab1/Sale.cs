@@ -55,7 +55,7 @@ namespace Lab1
             //    Monitor.Enter(Inventory, ref IsLocked);
             //    try
             //    {
-                    Inventory.Add(product, quantity);
+            Inventory.Add(product, quantity);
 
             //    }
             //    catch (Exception ex)
@@ -70,7 +70,7 @@ namespace Lab1
             //        Monitor.Exit(Inventory);
             //        IsLocked = false;
             //    }
-           // }
+            // }
         }
 
         public void RemoveFromInventory(Product product, int quantity)
@@ -79,25 +79,25 @@ namespace Lab1
             //try
             //{
             //    Monitor.Enter(Inventory, ref IsLocked);
-                try
-                {
-            Inventory.Remove(product, quantity);
-            Console.WriteLine("Sale " + id + ": purchased " + product.Name + "; quantity -  " + Inventory.GetQuantiyProduct(product));
+            try
+            {
+                Inventory.Remove(product, quantity);
+                Console.WriteLine("Sale " + id + ": purchased " + product.Name + "; quantity -  " + Inventory.GetQuantiyProduct(product));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            //}
+            //finally
+            //{
+            //    if (IsLocked)
+            //    {
+            //        Monitor.Exit(Inventory);
+            //        IsLocked = false;
+            //    }
+            //}
         }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-    //}
-    //finally
-    //{
-    //    if (IsLocked)
-    //    {
-    //        Monitor.Exit(Inventory);
-    //        IsLocked = false;
-    //    }
-    //}
-}
 
 
     }

@@ -85,48 +85,55 @@ namespace Lab1
             }
         }
 
-        public async static void Start(Sale sale, int delay)
+        public static void Start(Sale sale, int delay)
         {
             Dictionary<Product, int> op = new Dictionary<Product, int>();
             Random random = new Random();
             // lock (inventory) lock (bills) { 
-            for (int i = 0; i < No_Operations; i++)
+            lock (bills) lock(locker)
             {
-                int id = random.Next(0, productsList.Count - 1);
-                Product product = productsList.ElementAt(id).Key;
-                lock (product) lock(bills)
+                for (int i = 0; i < No_Operations; i++)
                 {
-                    if (productsList.ElementAt(id).Value <= 0) continue;
-                    int q = random.Next(0, productsList.ElementAt(id).Value + 1);
-                    if (q > 0)
+                    int id = random.Next(0, productsList.Count - 1);
+                    Product product = productsList.ElementAt(id).Key;
+                    lock (product)
                     {
-
-                        op.Add(productsList.ElementAt(id).Key, q);
-                        Monitor.Enter(amountOfMoney);
-                        lock (locker)
+                        if (productsList.ElementAt(id).Value <= 0) continue;
+                        int q = random.Next(0, productsList.ElementAt(id).Value + 1);
+                        if (q > 0)
                         {
-                            amountOfMoney = Add(ref amountOfMoney, productsList.ElementAt(id).Key.Price * q);
+
+                            op.Add(productsList.ElementAt(id).Key, q);
+
+                           // lock (locker)
+                           // {
+                                amountOfMoney = Add(ref amountOfMoney, productsList.ElementAt(id).Key.Price * q);
+                                //amountOfMoney += productsList.ElementAt(id).Key.Price * q;
+                           // }
+
+                            // amountOfMoney += productsList.ElementAt(id).Key.Price * q;
+                            sale.RemoveFromInventory(productsList.ElementAt(id).Key, q);
+
+
                         }
-                        
-                        // amountOfMoney += productsList.ElementAt(id).Key.Price * q;
-                        sale.RemoveFromInventory(productsList.ElementAt(id).Key, q);
-
 
                     }
-                    if (op.Count > 0)
-                    {
-                        
-                            bills.Add(new Bill(op));
-                        
-                    }
+                    //}
                 }
-                //}
+
+                if (op.Count > 0)
+                {
+
+                    bills.Add(new Bill(op));
+
+                }
             }
+            
             // Thread.Sleep(delay);
 
         }
 
-        public async static void Checker(int delay)
+        public static void Checker(int delay)
         {
             while (true)
             {
@@ -136,10 +143,11 @@ namespace Lab1
                         double sum = 0;
                         foreach (Bill bill in bills.ToList())
                         {
-                            sum += bill.GetTotalPrice();
+                            //sum += bill.GetTotalPrice();
+                            sum = Add(ref sum, bill.GetTotalPrice());
                         }
                         Console.WriteLine("am = " + amountOfMoney + "; " + "sum = " + sum);
-                        Console.WriteLine("Checker: " + (amountOfMoney != sum));
+                        Console.WriteLine("Checker: " + ((amountOfMoney.CompareTo(sum))));
 
                     }
 
@@ -151,7 +159,7 @@ namespace Lab1
         {
             CreateProducts(productsList);
             inventory.GenerateLocks();
-            Task.Run(() => Checker(10));
+            Task.Run(() => Checker(20));
             for (int i = 0; i < No_Threads; i++)
             {
                 Sale sale = new Sale(inventory, i);
@@ -181,7 +189,7 @@ namespace Lab1
                 sum += bill.GetTotalPrice();
             }
             Console.WriteLine("am = " + amountOfMoney + "; " + "sum = " + sum);
-            Console.WriteLine("Checker: " + (amountOfMoney != sum));
+            Console.WriteLine("Checker: " + (amountOfMoney.CompareTo(sum)));
 
         }
     }

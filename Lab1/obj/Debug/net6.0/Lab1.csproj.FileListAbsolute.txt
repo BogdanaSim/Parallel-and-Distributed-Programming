@@ -13,6 +13,11 @@ C:\F\Parallel-and-Distributed-Programming\Lab1\Lab1\obj\Debug\net6.0\refint\Lab1
 C:\F\Parallel-and-Distributed-Programming\Lab1\Lab1\obj\Debug\net6.0\Lab1.pdb
 C:\F\Parallel-and-Distributed-Programming\Lab1\Lab1\obj\Debug\net6.0\Lab1.genruntimeconfig.cache
 C:\F\Parallel-and-Distributed-Programming\Lab1\Lab1\obj\Debug\net6.0\ref\Lab1.dll
+C:\F\Parallel-and-Distributed-Programming\Lab1\bin\Debug\net6.0\Lab1.exe
+C:\F\Parallel-and-Distributed-Programming\Lab1\bin\Debug\net6.0\Lab1.deps.json
+C:\F\Parallel-and-Distributed-Programming\Lab1\bin\Debug\net6.0\Lab1.runtimeconfig.json
+C:\F\Parallel-and-Distributed-Programming\Lab1\bin\Debug\net6.0\Lab1.dll
+C:\F\Parallel-and-Distributed-Programming\Lab1\bin\Debug\net6.0\Lab1.pdb
 C:\F\Parallel-and-Distributed-Programming\Lab1\obj\Debug\net6.0\Lab1.csproj.AssemblyReference.cache
 C:\F\Parallel-and-Distributed-Programming\Lab1\obj\Debug\net6.0\Lab1.GeneratedMSBuildEditorConfig.editorconfig
 C:\F\Parallel-and-Distributed-Programming\Lab1\obj\Debug\net6.0\Lab1.AssemblyInfoInputs.cache
@@ -21,10 +26,5 @@ C:\F\Parallel-and-Distributed-Programming\Lab1\obj\Debug\net6.0\Lab1.csproj.Core
 C:\F\Parallel-and-Distributed-Programming\Lab1\obj\Debug\net6.0\Lab1.dll
 C:\F\Parallel-and-Distributed-Programming\Lab1\obj\Debug\net6.0\refint\Lab1.dll
 C:\F\Parallel-and-Distributed-Programming\Lab1\obj\Debug\net6.0\Lab1.pdb
-C:\F\Parallel-and-Distributed-Programming\Lab1\bin\Debug\net6.0\Lab1.exe
-C:\F\Parallel-and-Distributed-Programming\Lab1\bin\Debug\net6.0\Lab1.deps.json
-C:\F\Parallel-and-Distributed-Programming\Lab1\bin\Debug\net6.0\Lab1.runtimeconfig.json
-C:\F\Parallel-and-Distributed-Programming\Lab1\bin\Debug\net6.0\Lab1.dll
-C:\F\Parallel-and-Distributed-Programming\Lab1\bin\Debug\net6.0\Lab1.pdb
 C:\F\Parallel-and-Distributed-Programming\Lab1\obj\Debug\net6.0\Lab1.genruntimeconfig.cache
 C:\F\Parallel-and-Distributed-Programming\Lab1\obj\Debug\net6.0\ref\Lab1.dll
