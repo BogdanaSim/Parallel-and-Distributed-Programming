@@ -24,6 +24,12 @@ namespace Lab1
             this.Name = "";
             this.Price = 0;
         }
+
+        public override string ToString() { 
+            return "Product name: "+Name +"; Product price: " +Math.Round(Price,5);
+        }
+
+
     }
 
 
