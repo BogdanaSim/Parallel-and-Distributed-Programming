@@ -82,7 +82,7 @@ namespace Lab1
             try
             {
                 Inventory.Remove(product, quantity);
-                Console.WriteLine("Sale " + id + ": purchased " + product.Name + "; quantity -  " + Inventory.GetQuantiyProduct(product));
+                Console.WriteLine("Sale " + id + ": purchased " + product.Name + "; quantity -  " + quantity+" (remaining quantity: "+ Inventory.GetQuantiyProduct(product)+")");
             }
             catch (Exception ex)
             {

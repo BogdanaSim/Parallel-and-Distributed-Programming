@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 namespace Lab1
 {
 
-    public class Bill : Inventory
+    public class Bill 
     {
         private readonly object locker = new object();
-        public Bill(Dictionary<Product, int> products) : base(products)
+        private Dictionary<Product, SynchronizedCollection<int>> products = new Dictionary<Product, SynchronizedCollection<int>>(); 
+        public Bill(Dictionary<Product, SynchronizedCollection<int>> products) 
         {
+            this.products = products;
         }
         public static double Add(ref double location1, double value)
         {
@@ -30,11 +32,11 @@ namespace Lab1
             lock (locker)
             {
                 double Total = 0;
-                foreach (Product product in this.GetAll())
+                foreach (Product product in this.products.Keys)
                 {
-
+                    foreach(int quantity in this.products[product])
                     //Total += product.Price * this.GetQuantiyProduct(product);
-                    Total = Add(ref Total,product.Price * this.GetQuantiyProduct(product));
+                        Total = Add(ref Total,product.Price * quantity);
                 }
                 return Total;
             }

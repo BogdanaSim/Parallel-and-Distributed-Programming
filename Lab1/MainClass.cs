@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -40,37 +42,37 @@ namespace Lab1
             Random random = new Random();
             for (int i = 0; i < No_Products; i++)
             {
-                products.Add(new Product(RandomString(), (random.NextDouble() * 80) + 20), random.Next(0, 50));
+                products.Add(new Product(RandomString(), (random.NextDouble() * 80) + 20), random.Next(1, 50));
             }
 
         }
 
-        public static List<Bill> CreateBills(Dictionary<Product, int> products)
-        {
-            List<Bill> bills = new List<Bill>();
-            Random random = new Random();
-            foreach (Product product in products.Keys)
-            {
-                Dictionary<Product, int> op = new Dictionary<Product, int>();
-                for (int i = 0; i < No_Operations; i++)
-                {
+        //public static List<Bill> CreateBills(Dictionary<Product, int> products)
+        //{
+        //    List<Bill> bills = new List<Bill>();
+        //    Random random = new Random();
+        //    foreach (Product product in products.Keys)
+        //    {
+        //        Dictionary<Product, int> op = new Dictionary<Product, int>();
+        //        for (int i = 0; i < No_Operations; i++)
+        //        {
 
-                    if (products[product] <= 0) continue;
-                    int q = random.Next(0, products[product] + 1);
-                    if (q > 0)
-                    {
-                        op.Add(product, q);
+        //            if (products[product] <= 0) continue;
+        //            int q = random.Next(0, products[product] + 1);
+        //            if (q > 0)
+        //            {
+        //                op.Add(product, q);
 
-                    }
-                    if (op.Count > 0)
-                    {
-                        bills.Add(new Bill(op));
-                    }
-                }
-            }
+        //            }
+        //            if (op.Count > 0)
+        //            {
+        //                bills.Add(new Bill(op));
+        //            }
+        //        }
+        //    }
 
-            return bills;
-        }
+        //    return bills;
+        //}
 
         public static double Add(ref double location1, double value)
         {
@@ -87,7 +89,7 @@ namespace Lab1
 
         public static void Start(Sale sale, int delay)
         {
-            Dictionary<Product, int> op = new Dictionary<Product, int>();
+            Dictionary<Product, SynchronizedCollection<int>> op = new Dictionary<Product, SynchronizedCollection<int>>();
             Random random = new Random();
             double sum = 0;
             // lock (inventory) lock (bills) { 
@@ -104,7 +106,12 @@ namespace Lab1
                     if (q > 0)
                     {
 
-                        op.Add(productsList.ElementAt(id).Key, q);
+                        //op.Add(productsList.ElementAt(id).Key, q);
+                        if (!op.ContainsKey(productsList.ElementAt(id).Key))
+                        {
+                            op[productsList.ElementAt(id).Key]=new SynchronizedCollection<int>();
+                        }
+                        op[productsList.ElementAt(id).Key].Add(q);
 
 
 
@@ -122,7 +129,7 @@ namespace Lab1
                 }
                 //}
             }
-            lock (bills) lock (locker)
+            lock (bills) 
                 {
                     amountOfMoney = Add(ref amountOfMoney, sum);
                     if (op.Count > 0)
@@ -138,11 +145,27 @@ namespace Lab1
 
         }
 
+        public static void WriteDataToFile(string FileName)
+        {
+            
+            using (StreamWriter file = new StreamWriter(FileName))
+                foreach (var entry in inventory.GetProducts())
+                    file.WriteLine("[{0}; quantity: {1}]", entry.Key, entry.Value);
+        }
+
+        public static string ResultChecker(int result)
+        {
+            if (result == 0)
+                return "Verified!";
+            return "Error Checker!";
+
+        }
+
         public static void Checker(int delay)
         {
             while (true)
             {
-                lock (bills) lock (locker)
+                lock (bills) 
                     {
 
                         double sum = 0;
@@ -152,7 +175,7 @@ namespace Lab1
                             sum = Add(ref sum, bill.GetTotalPrice());
                         }
                         Console.WriteLine("am = " + Math.Round(amountOfMoney, 5) + "; " + "sum = " + Math.Round(sum, 5));
-                        Console.WriteLine("Checker: " + ((Math.Round(amountOfMoney, 5).CompareTo(Math.Round(sum, 5)))));
+                        Console.WriteLine("Checker: " + ResultChecker(Math.Round(amountOfMoney, 5).CompareTo(Math.Round(sum, 5))));
 
                     }
 
@@ -164,11 +187,12 @@ namespace Lab1
         {
             CreateProducts(productsList);
             inventory.GenerateLocks();
-            Task.Run(() => Checker(5));
+            WriteDataToFile(@"..\..\..\Files\data.txt");
+            Task.Run(() => Checker(1));
             for (int i = 0; i < No_Threads; i++)
             {
                 Sale sale = new Sale(inventory, i);
-                ThreadStart thread = () => Start(sale, 5);
+                ThreadStart thread = () => Start(sale, 7);
                 threads.Add(new Thread(thread));
 
             }
@@ -196,6 +220,19 @@ namespace Lab1
             //Console.WriteLine("am = " + Math.Round(amountOfMoney, 5) + "; " + "sum = " + Math.Round(sum, 5));
             //Console.WriteLine("Checker: " + ((Math.Round(amountOfMoney, 5).CompareTo(Math.Round(sum, 5)))));
 
+            lock (bills)
+            {
+
+                double sum = 0;
+                foreach (Bill bill in bills.ToList())
+                {
+                    //sum += bill.GetTotalPrice();
+                    sum = Add(ref sum, bill.GetTotalPrice());
+                }
+                Console.WriteLine("am = " + Math.Round(amountOfMoney, 5) + "; " + "sum = " + Math.Round(sum, 5));
+                Console.WriteLine("Checker: " + ((Math.Round(amountOfMoney, 5).CompareTo(Math.Round(sum, 5)))));
+
+            }
         }
     }
 }
