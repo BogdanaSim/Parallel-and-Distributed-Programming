@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Lab1
 {
@@ -16,6 +18,18 @@ namespace Lab1
             this.Name = name;
             this.Price = price;
         }
+
+        public Product()
+        {
+            this.Name = "";
+            this.Price = 0;
+        }
+
+        public override string ToString() { 
+            return "Product name: "+Name +"; Product price: " +Math.Round(Price,5);
+        }
+
+
     }
 
 

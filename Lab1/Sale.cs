@@ -50,53 +50,53 @@ namespace Lab1
         public void AddToInventory(Product product, int quantity)
         {
 
-            try
-            {
-                Monitor.Enter(Inventory, ref IsLocked);
-                try
-                {
-                    Inventory.Add(product, quantity);
+            //try
+            //{
+            //    Monitor.Enter(Inventory, ref IsLocked);
+            //    try
+            //    {
+            Inventory.Add(product, quantity);
 
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
-            finally
-            {
-                if (IsLocked)
-                {
-                    Monitor.Exit(Inventory);
-                    IsLocked = false;
-                }
-            }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine(ex.Message);
+            //    }
+            //}
+            //finally
+            //{
+            //    if (IsLocked)
+            //    {
+            //        Monitor.Exit(Inventory);
+            //        IsLocked = false;
+            //    }
+            // }
         }
 
         public void RemoveFromInventory(Product product, int quantity)
         {
 
+            //try
+            //{
+            //    Monitor.Enter(Inventory, ref IsLocked);
             try
             {
-                Monitor.Enter(Inventory, ref IsLocked);
-                try
-                {
-                    Inventory.Remove(product, quantity);
-                    Console.WriteLine("Sale " + id + ": purchased " + product.Name + "; quantity -  " + Inventory.GetQuantiyProduct(product));
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+                Inventory.Remove(product, quantity);
+                Console.WriteLine("Sale " + id + ": purchased " + product.Name + "; quantity -  " + quantity+" (remaining quantity: "+ Inventory.GetQuantiyProduct(product)+")");
             }
-            finally
+            catch (Exception ex)
             {
-                if (IsLocked)
-                {
-                    Monitor.Exit(Inventory);
-                    IsLocked = false;
-                }
+                Console.WriteLine(ex.Message);
             }
+            //}
+            //finally
+            //{
+            //    if (IsLocked)
+            //    {
+            //        Monitor.Exit(Inventory);
+            //        IsLocked = false;
+            //    }
+            //}
         }
 
 

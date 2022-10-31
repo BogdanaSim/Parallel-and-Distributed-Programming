@@ -11,10 +11,17 @@ namespace Lab1
         
     {
         private Dictionary<Product, int> _products = new Dictionary<Product, int>();
+        private Dictionary<Product, object> _locks = new Dictionary<Product, object>();
 
         public Inventory(Dictionary<Product, int> products)
         {
             _products = products;
+            
+        }
+
+        public Dictionary<Product, int> GetProducts()
+        {
+            return _products;
         }
 
         public int GetQuantiyProduct(Product product)
@@ -32,11 +39,27 @@ namespace Lab1
             return products;
         }
 
+        public void GenerateLocks()
+        {
+            foreach(Product product in _products.Keys)
+            {
+                
+                this._locks.Add(product, new object());
+            }
+
+        }
+
         public void Add(Product product, int quantity)
         {
             if (this._products.ContainsKey(product))
             {
-                this._products[product] = this._products[product] + quantity;
+                lock (product)
+                {
+                    int temp = this._products[product];
+                    //this._products[product] = this._products[product] + quantity;
+                    Interlocked.Add(ref temp, quantity);
+                    this._products[product] = temp;
+                }
 
             }
             else
@@ -49,11 +72,21 @@ namespace Lab1
         {
             if (this._products.ContainsKey(product))
             {
-                if(this.GetQuantiyProduct(product) > quantity)
-                    this._products[product] = this._products[product] - quantity;
-                else
+                object locker = this._locks[product];
+                lock (locker)
                 {
-                    throw new InventoryException("Quantity should be lower or equal than the product's quantity!");
+                    int temp = this._products[product];
+
+                    if (this.GetQuantiyProduct(product) > quantity)
+                    {
+                        //this._products[product] = this._products[product] - quantity;
+                        Interlocked.Add(ref temp, -quantity);
+                        this._products[product] = temp;
+                    }
+                    else
+                    {
+                        throw new InventoryException("Quantity should be lower or equal than the product's quantity!");
+                    }
                 }
                 if (this.GetQuantiyProduct(product) == 0)
                 {
