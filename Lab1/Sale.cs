@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Lab1
+﻿namespace Lab1
 {
     public class Sale
     {
@@ -49,56 +42,20 @@ namespace Lab1
 
         public void AddToInventory(Product product, int quantity)
         {
-
-            //try
-            //{
-            //    Monitor.Enter(Inventory, ref IsLocked);
-            //    try
-            //    {
             Inventory.Add(product, quantity);
-
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        Console.WriteLine(ex.Message);
-            //    }
-            //}
-            //finally
-            //{
-            //    if (IsLocked)
-            //    {
-            //        Monitor.Exit(Inventory);
-            //        IsLocked = false;
-            //    }
-            // }
         }
 
         public void RemoveFromInventory(Product product, int quantity)
         {
-
-            //try
-            //{
-            //    Monitor.Enter(Inventory, ref IsLocked);
             try
             {
                 Inventory.Remove(product, quantity);
-                Console.WriteLine("Sale " + id + ": purchased " + product.Name + "; quantity -  " + quantity+" (remaining quantity: "+ Inventory.GetQuantiyProduct(product)+")");
+                Console.WriteLine("Sale " + id + ": purchased " + product.Name + "; quantity -  " + quantity + " (remaining quantity: " + Inventory.GetQuantiyProduct(product) + ")");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            //}
-            //finally
-            //{
-            //    if (IsLocked)
-            //    {
-            //        Monitor.Exit(Inventory);
-            //        IsLocked = false;
-            //    }
-            //}
         }
-
-
     }
 }

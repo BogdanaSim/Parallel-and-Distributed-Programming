@@ -1,14 +1,10 @@
 ﻿using Lab1.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab1
 {
     public class Inventory
-        
+
     {
         private Dictionary<Product, int> _products = new Dictionary<Product, int>();
         private Dictionary<Product, object> _locks = new Dictionary<Product, object>();
@@ -16,7 +12,6 @@ namespace Lab1
         public Inventory(Dictionary<Product, int> products)
         {
             _products = products;
-            
         }
 
         public Dictionary<Product, int> GetProducts()
@@ -32,7 +27,7 @@ namespace Lab1
         public HashSet<Product> GetAll()
         {
             HashSet<Product> products = new HashSet<Product>();
-            foreach(Product product in this._products.Keys)
+            foreach (Product product in this._products.Keys)
             {
                 products.Add(product);
             }
@@ -41,12 +36,10 @@ namespace Lab1
 
         public void GenerateLocks()
         {
-            foreach(Product product in _products.Keys)
+            foreach (Product product in _products.Keys)
             {
-                
                 this._locks.Add(product, new object());
             }
-
         }
 
         public void Add(Product product, int quantity)
@@ -60,7 +53,6 @@ namespace Lab1
                     Interlocked.Add(ref temp, quantity);
                     this._products[product] = temp;
                 }
-
             }
             else
             {

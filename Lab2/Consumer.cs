@@ -21,13 +21,16 @@ namespace Lab2
             {
                 while (true)
             {
-                
-                    common.total += common.currentProduct;
-                    Console.WriteLine("Consumed -->" + common.currentProduct);
-                    Monitor.Pulse(common.sync);
-                    if (common.done == true)
+                    if (common.cond)
                     {
-                        break;
+                        common.total += common.currentProduct;
+                        Console.WriteLine("Consumed -->" + common.currentProduct);
+                        common.cond = false;
+                        Monitor.Pulse(common.sync);
+                        if (common.done == true)
+                        {
+                            break;
+                        }
                     }
                     Monitor.Wait(common.sync);
                     

@@ -13,12 +13,14 @@ namespace Lab2
         public double total { get; set; }
         public bool done { get; set; }
 
-        public Common(object sync, double currentProduct, double total, bool done)
+        public bool cond { get; set; }
+        public Common(object sync, double currentProduct, double total, bool done, bool cond)
         {
             this.sync = sync;
             this.currentProduct = currentProduct;
             this.total = total;
             this.done = done;
+            this.cond = cond;
         }
     }
 }

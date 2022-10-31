@@ -12,6 +12,7 @@ namespace Lab2
         private SynchronizedCollection<double> v2;
         private Common common;
 
+
         public Producer(SynchronizedCollection<double> v1, SynchronizedCollection<double> v2, Common common)
         {
             this.v1 = v1;
@@ -27,14 +28,17 @@ namespace Lab2
                 
                 lock (common.sync) 
                 {
-
-                    common.currentProduct = v1[i] * v2[i];
-                    Console.WriteLine("Produced -->" + common.currentProduct);
-                    Monitor.Pulse(common.sync);
-                    if (i == v1.Count - 1)
+                    if (!common.cond)
                     {
-                        common.done = true;
-                        break;
+                        common.currentProduct = v1[i] * v2[i];
+                        Console.WriteLine("Produced -->" + v1[i] + "*" + v2[i] + " = " + common.currentProduct);
+                        common.cond = true;
+                        Monitor.Pulse(common.sync);
+                        if (i == v1.Count - 1)
+                        {
+                            common.done = true;
+                            break;
+                        }
                     }
                     Monitor.Wait(common.sync);
                     
