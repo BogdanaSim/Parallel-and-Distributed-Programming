@@ -33,7 +33,8 @@ namespace Lab3
         {
             Create();
             MultiplyMatrices multiplyMatrices = new MultiplyMatrices(m1, m2, 2);
-            Matrix<double> res = multiplyMatrices.GetResult();
+            multiplyMatrices.GetResult();
+            Matrix<double> res = multiplyMatrices.result;
             Console.WriteLine(res.ToString());
         }
     }

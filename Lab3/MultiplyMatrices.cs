@@ -10,7 +10,7 @@ namespace Lab3
     {
         public Matrix<double> m1;
         public Matrix<double> m2;
-        public Matrix<double> result;
+        public Matrix<double> result { get; }
         public int NoTasks;
         public List<Thread> threads = new List<Thread>();
         public List<int> columns = new List<int>();
@@ -25,7 +25,7 @@ namespace Lab3
 
         }
 
-        public Matrix<double> GetResult() 
+        public void GetResult() 
         {
             for (int i = 0; i < NoTasks; i++)
             {
@@ -33,6 +33,7 @@ namespace Lab3
                 ThreadStart thread = () => this.Multiply(a);
                 Thread thread1 = new Thread(thread);
                 thread1.Start();
+                threads.Add(thread1);
 
             }
 
@@ -53,7 +54,8 @@ namespace Lab3
                     Console.WriteLine(e.Message);
                 }
             }
-            return result;
+            
+            
         }
 
         public void Multiply(int column)
@@ -72,8 +74,8 @@ namespace Lab3
                 {
 
                     this.result[j, columnElem] = this.ComputeElem(j, columnElem);
-                    Console.WriteLine("[" + j + "," + column + "] = " + this.result[j, columnElem]);
-                        columnElem += NoTasks;
+                    Console.WriteLine("[" + j + "," + columnElem + "] = " + this.result[j, columnElem]);
+                    columnElem += NoTasks;
                     }
                     columnElem = columnElem - m2.m;
                 }
