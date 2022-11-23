@@ -1,0 +1,62 @@
+Site URL: www.cs.ubbcluj.ro/~rlupsa/edu/pdp/lab-4-futures-continuations.html
+
+HTTP/1.1 200 OK
+Date: Wed, 23 Nov 2022 14:48:03 GMT
+Server: Apache
+Last-Modified: Fri, 18 Nov 2022 11:41:03 GMT
+ETag: "7c400c-7d8-5edbd2e2f31c0"
+Accept-Ranges: bytes
+Content-Length: 2008
+Vary: Accept-Encoding,User-Agent
+Content-Type: text/html
+
+<html><head>
+ <link rel=StyleSheet 
+   href="https://www.cs.ubbcluj.ro/~rlupsa/res/normal-style.css" 
+   type="text/css">
+ <title>Lab 4 - Futures and continuations</title>
+</head>
+<body>
+<address class=topnav>
+  <a href="/~rlupsa/index-en.html">home page</a> -&gt;
+  <a href="/~rlupsa/edu/index.html">teaching</a> -&gt;
+  <a href="/~rlupsa/edu/pdp/index.html">parallel and distributed programming</a> -&gt;
+  <span class=selflink>lab 4 - Futures and continuations</span>
+</address>
+
+<h1><center>Lab 4 - Futures and continuations</center></h1>
+
+<p><b>Due:</b> <del>week 8</del> <ins>week 9, with bonus (1p) for having it finished by week 8</ins></p>
+
+<h2>Goal</h2>
+
+<p>The goal of this lab is to use C# TPL futures and continuations in a more complex scenario,
+in conjunction with waiting for external events.</p>
+
+<h2>Requirement</h2>
+
+<p>Write a program that is capable of simultaneously downloading several files through HTTP.
+Use directly the BeginConnect()/EndConnect(), BeginSend()/EndSend() and BeginReceive()/EndReceive() Socket functions,
+and write a simple parser for the HTTP protocol (it should be able only to get the header lines and to understand
+the <i>Content-lenght:</i> header line).<p>
+
+<p>Try three implementations:<ol>
+  <li>Directly implement the parser on the callbacks (event-driven);
+  <li>Wrap the connect/send/receive operations in tasks, with the callback setting the result of the task;
+  <li>Like the previous, but also use the async/await mechanism.
+</ol></p>
+
+<h2>Examples</h2>
+  <p><a href="progs/srv-begin-end.cs">srv-begin-end.cs</a>
+  <p><a href="progs/srv-task.cs">srv-task.cs</a>
+  <p><a href="progs/srv-await.cs">srv-await.cs</a>
+  <p>A client for the above servers: <a href="progs/srv-client.cs">srv-client.cs</a>
+
+<address class=signature>
+<a href="https://www.cs.ubbcluj.ro/~rlupsa/index-en.html"
+    >Radu-Lucian LUP&#350;A</a><br>
+2020-11-01
+</address>
+</body></html>
+
+Content length is: 2008

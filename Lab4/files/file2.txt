@@ -1,0 +1,556 @@
+Site URL: www.cs.ubbcluj.ro/~rares/course/vr/
+
+HTTP/1.1 200 OK
+Date: Wed, 23 Nov 2022 14:48:05 GMT
+Server: Apache
+Last-Modified: Wed, 05 Oct 2022 18:23:01 GMT
+ETag: "82e27f-40ec-5ea4daab62b40"
+Accept-Ranges: bytes
+Content-Length: 16620
+Vary: Accept-Encoding,User-Agent
+Cache-Control: no-cache, no-store, must-revalidate
+Pragma: no-cache
+Expires: 0
+Content-Type: text/html
+
+<html>
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta charset="UTF-8">
+    <title>Virtual Reality</title>
+
+    <link rel="shortcut icon" type="image/png" href="/~rares/favicon.png"/>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700|Ubuntu:400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style type="text/css">
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 18px;
+            text-align: justify;
+            padding: 10px
+        }
+
+        table, tr, td {
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 18px;
+        }
+
+        .Container {
+            width: 60em;
+        }
+
+        .Title {
+            font-size: 2em;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .Semester {
+            font-size: 1.5em;
+        }
+
+        .Year {
+            font-size: 1.25em;
+        }
+
+        .ProfLabel {
+            font-size: 1.25em;
+            font-weight: bold;
+        }
+
+        .Prof {
+            font-size: 1em;
+        }
+
+        .SectionTitle {
+            font-size: 1.25em;
+            font-weight: bold;
+        }
+
+        .LatestNews {
+            font-size: 1em;
+            border: solid red 1px;
+            color: red;
+        }
+
+        .OldNews {
+            font-size: 1em;
+            border: solid #777 1px;
+            color: #777;
+        }
+
+        pre {
+            font-family: 'Ubuntu Mono', monospace;
+            font-size: 1em;
+        }
+
+        comment {
+            color: #777;
+        }
+
+        .MonospacedBold {
+            font-family: 'Ubuntu Mono', monospace;
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        .Monospaced {
+            font-family: 'Ubuntu Mono', monospace;
+            font-size: 1em;
+        }
+
+        .InlineSourceCode {
+            font-family: 'Ubuntu Mono', monospace;
+            font-size: 1em;
+            background: lightblue;
+        }
+
+        .SourceCode {
+            font-family: 'Ubuntu Mono', monospace;
+            font-size: 1em;
+            color: #008;
+        }
+
+        .PseudoCode {
+            font-family: 'Ubuntu Mono', monospace;
+            font-size: 1em;
+            font-weight: bold;
+            color: #00F;
+        }
+
+        .OldSourceCode {
+            font-family: 'Ubuntu Mono', monospace;
+            font-size: 1em;
+            color: #558;
+        }
+
+        .LabHead {
+            font-size: 1em;
+            font-weight: bold;
+            border: solid black 1px;
+        }
+
+        .Lab {
+            font-size: 1em;
+            border: solid black 1px;
+        }
+
+        .WhiteRow {
+            background: white;
+            vertical-align: top;
+        }
+
+        .DarkRow {
+            background: #DDDDDD;
+            vertical-align: top;
+        }
+
+        .HeaderRow {
+            background: #AAA;
+            vertical-align: top;
+        }
+
+        .Level1 {
+            margin-left: 0px;
+        }
+
+        .Level2 {
+            margin-left: 35px;
+        }
+
+        .Level3 {
+            margin-left: 70px;
+        }
+
+        .sched {
+            border-collapse: collapse;
+        }
+
+        .hdat {
+            background: #c1c1c1;
+            font-weight: bold;
+            border: 1px solid black;
+            width: 6em;
+            vertical-align: top;
+            font-size: 1em;
+        }
+
+        .hlec {
+            background: #62abf3;
+            font-weight: bold;
+            border: 1px solid black;
+            vertical-align: top;
+            font-size: 1em;
+        }
+
+        .hsem {
+            background: #fdad4b;
+            font-weight: bold;
+            border: 1px solid black;
+            vertical-align: top;
+            font-size: 1em;
+        }
+
+        .hlab {
+            background: #71d065;
+            font-weight: bold;
+            border: 1px solid black;
+            vertical-align: top;
+            font-size: 1em;
+        }
+
+        .htst {
+            background: #ffdd00;
+            font-weight: bold;
+            border: 1px solid black;
+            vertical-align: top;
+            font-size: 1em;
+        }
+
+        .hpex {
+            background: #f75959;
+            font-weight: bold;
+            border: 1px solid black;
+            vertical-align: top;
+            font-size: 1em;
+        }
+
+        .dat {
+            background: white;
+            font-weight: bold;
+            border: 1px solid black;
+            vertical-align: top;
+            font-size: 1em;
+        }
+
+        .lec {
+            background: #c1e9f7;
+            border: 1px solid black;
+            vertical-align: top;
+            font-size: 1em;
+        }
+
+        .sem {
+            background: #f9ddab;
+            border: 1px solid black;
+            vertical-align: top;
+            font-size: 1em;
+        }
+
+        .lab {
+            background: #cdffcd;
+            border: 1px solid black;
+            vertical-align: top;
+            font-size: 1em;
+            width: 12em;
+        }
+
+        .tst {
+            background: #fbfbab;
+            border: 1px solid black;
+            vertical-align: top;
+            font-size: 1em;
+            width: 12em;
+        }
+
+        .pex {
+            background: #ff7777;
+            border: 1px solid black;
+            vertical-align: top;
+            font-size: 1em;
+        }
+
+        .vdt {
+            background: #c1c1c1;
+            font-weight: bold;
+            border: 1px solid black;
+            vertical-align: top;
+            font-size: 1em;
+        }
+
+        .vac {
+            background: #dedede;
+            border: 1px solid black;
+            vertical-align: top;
+            font-size: 1em;
+        }
+
+        .non {
+            background: white;
+            border: 1px solid black;
+            font-size: 1em;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 10em;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+            position: absolute;
+            z-index: 1;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -60px;
+            font-family: Ubuntu,serif;
+            font-weight: normal;
+        }
+
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        .num {
+            color: blue;
+        }
+
+        .const {
+            color: #3f0067;
+        }
+    </style>
+</head>
+
+<!-- ?????????? ?????????? -->
+
+<body link="blue"
+      vlink="blue"
+      alink="red">
+<div class="Container">
+    <table>
+        <tr>
+            <td style="vertical-align: top"><a href="/~rares"><i class="fa fa-home fa-2x" aria-hidden="true" style="color: blue"></i></a></td>
+            <td style="vertical-align: top">
+                <span class="Title">Virtual Reality</span><br/><br/>
+                <span class="Semester">2022-2023 &nbsp;&nbsp;&nbsp;1<sup>st</sup> Semester</span><br/>
+            </td>
+        </tr>
+    </table>
+
+    <br/>
+    <table border="0">
+        <tr valign="top">
+            <td><span class="ProfLabel">Instructor:</span></td>
+            <td style="padding-top:4px"><span class="Prof">Conf. Dr. Rare?? Boian &lt;rares at cs.ubbcluj.ro&gt;</span>
+            </td>
+        </tr>
+    </table>
+    <br/>
+
+    <a href="https://www.cs.ubbcluj.ro/files/curricula/2020/syllabus/IE_sem5_MLE5061_en_rares_2020_5192.pdf"><span class="SectionTitle">Syllabus</span></a>
+    <br/>
+    <br/>
+    <span class="SectionTitle">News</span>
+    <table cellspacing="5px">
+        <tr>
+            <td class="LatestNews">2022-10-05: <b>Welcome!</b> Please read carefully all the details below.</td>
+        </tr>
+    </table>
+    <br/>
+
+    <span class="SectionTitle">Online Communication and Collaboration</span>
+    <ul>
+        <li>Login to Microsoft Teams using your university account (<a href="https://dtic.ubbcluj.ro/wp-content/uploads/2020/09/tutorial_studenti_MS_Teams_sep_2020_V3.pdf">guidelines</a>).</li>
+        <li>Join the class with code <b>8a365eo</b> (<a href="https://support.microsoft.com/en-us/office/use-a-link-or-code-to-join-a-team-c957af50-df15-46e3-b5c4-067547b64548">guidelines</a>)</li>
+        <li>For announcements watch <b>all of the following</b>
+            <ul>
+                <li>Department email <span class="lnk">@scs.ubbcluj.ro</span></li>
+                <li>University email <span class="lnk">@stud.ubbcluj.ro</span></li>
+                <li>News section on this site</li>
+                <li>Microsoft Teams General channel.</li>
+            </ul>
+        </li>
+        <li>The discussion forums will be in <b>Microsoft Teams</b>.</li>
+    </ul>
+
+    <span class="SectionTitle">Graded Work</span>
+    <ul>
+        <li>Projects
+            <ul>
+                <li>Rendering 1(<b>RS</b>): sphere ray tracing (requires <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1">.NET Core 3.1 SDK</a>)</li>
+                <li>Rendering 2(<b>RV</b>): volumetric data ray sampling</li>
+                <li>Scene graph (<b>SG</b>): animated articulated robot</li>
+                <li>Physics (<b>PH</b>): interaction with fixed and mobile objects</li>
+                <li>Theme project (<b>TP</b>): free implementation on a given theme</li>
+            </ul>
+        </li>
+    </ul>
+
+    <span class="SectionTitle">Final grade calculation</span><br>
+    <ul>
+        <li>In order to get a final grade, <u>all projects must be presented</u>.</li>
+        <li>Project <u>delays</u> result in a <u>1 point penalty per week</u>. The counting is extended all they way to the re-examination period, skipping the vacation</li>
+        <li>Grade calculation formula:<br/><br/>
+            <div class="Monospaced" style="margin-left: 40px; font-weight: bold">
+                <span class="const">Grade</span> = <span class="num">1</span> +
+                <span class="num">0.1</span>*<span class="const">RS</span> +
+                <span class="num">0.2</span>*<span class="const">RV</span> +
+                <span class="num">0.1</span>*<span class="const">SG</span> +
+                <span class="num">0.2</span>*<span class="const">PH</span> +
+                <span class="num">0.3</span>*<span class="const">TP</span>
+            </div>
+        </li>
+    </ul>
+
+    <span class="SectionTitle">Re-examination</span><br/>
+    <ul>
+        <li>Present the projects not yet presented</li>
+        <li>Grades will take into account the <u>delay penalty</u> above</li>
+        <li>To improve a project grade, ask the instructor, <u>ahead of time</u>, for extra work on the project in question</li>
+    </ul>
+
+    <span class="SectionTitle">Weekly Schedule</span><br/><br/>
+    <table class="sched">
+        <col style="width: 6em"/>
+        <col style="width: 19em"/>
+        <col style="width: 13em"/>
+        <col style="width: 2em"/>
+        <col style="width: 2em"/>
+        <col style="width: 2em"/>
+        <col style="width: 2em"/>
+        <col style="width: 2em"/>
+        <tr>
+            <td class="hdat" rowspan="2">Week</td>
+            <td class="hlec" rowspan="2">Lecture</td>
+            <td class="hlab" rowspan="2">Laboratory</td>
+            <td class="hpex" colspan="5" style="text-align: center">Projects</td>
+        </tr>
+        <tr>
+            <td class="hpex" style="text-align: center">RS</td>
+            <td class="hpex" style="text-align: center">RV</td>
+            <td class="hpex" style="text-align: center">SG</td>
+            <td class="hpex" style="text-align: center">PH</td>
+            <td class="hpex" style="text-align: center">TP</td>
+        </tr>
+        <tr>
+            <td class="dat">&nbsp;1: Oct 3</td>
+            <td class="lec">Ray tracing without lighting</td>
+            <td class="lab" rowspan="2">Project development</td>
+            <td class="pex" rowspan="2"></td>
+            <td class="non" rowspan="2"></td>
+            <td class="non" rowspan="2"></td>
+            <td class="non" rowspan="2"></td>
+            <td class="non" rowspan="2"></td>
+        </tr>
+        <tr>
+            <td class="dat">&nbsp;2: Oct 10</td>
+            <td class="lec">Ray tracing with lighting</td>
+        </tr>
+        <tr>
+            <td class="dat">&nbsp;3: Oct 17</td>
+            <td class="lec">Representing positions and orientations</td>
+            <td class="lab" rowspan="2">Project development</td>
+            <td class="pex" rowspan="2"></td>
+            <td class="pex" rowspan="2"></td>
+            <td class="non" rowspan="2"></td>
+            <td class="non" rowspan="2"></td>
+            <td class="non" rowspan="2"></td>
+        </tr>
+        <tr>
+            <td class="dat">&nbsp;4: Oct 24</td>
+            <td class="lec">Scene graph. Unity 3D introduction</td>
+        </tr>
+        <tr>
+            <td class="dat">&nbsp;5: Oct 31</td>
+            <td class="lec">Generic VR application architecture</td>
+            <td class="lab" rowspan="2">Project development and grading</td>
+            <td class="non" rowspan="2"></td>
+            <td class="pex" rowspan="2"></td>
+            <td class="pex" rowspan="2"></td>
+            <td class="non" rowspan="2"></td>
+            <td class="non" rowspan="2"></td>
+        </tr>
+        <tr>
+            <td class="dat">&nbsp;6: Nov 7</td>
+            <td class="lec">VR devices and applications overview</td>
+        </tr>
+        <tr>
+            <td class="dat">&nbsp;7: Nov 14</td>
+            <td class="lec">VR application design</td>
+            <td class="lab" rowspan="2">Project development and grading</td>
+            <td class="non" rowspan="2"></td>
+            <td class="non" rowspan="2"></td>
+            <td class="pex" rowspan="2"></td>
+            <td class="pex" rowspan="2"></td>
+            <td class="pex" rowspan="2"></td>
+        </tr>
+        <tr>
+            <td class="dat">&nbsp;8: Nov 21</td>
+            <td class="lec">Interaction. Collision detection</td>
+        </tr>
+        <tr>
+            <td class="dat">&nbsp;9: Nov 28</td>
+            <td class="lec">Physics</td>
+            <td class="lab" rowspan="2">Project development and grading</td>
+            <td class="non" rowspan="2"></td>
+            <td class="non" rowspan="2"></td>
+            <td class="non" rowspan="2"></td>
+            <td class="pex" rowspan="2"></td>
+            <td class="pex" rowspan="2"></td>
+        </tr>
+        <tr>
+            <td class="dat">10: Dec 5</td>
+            <td class="lec">Animation. Terrain generation</td>
+        </tr>
+        <tr>
+            <td class="dat">11: Dec 12</td>
+            <td class="lec">Open GL shaders (GLSL)</td>
+            <td class="lab" rowspan="2">Project development and grading</td>
+            <td class="non" rowspan="2"></td>
+            <td class="non" rowspan="2"></td>
+            <td class="non" rowspan="2"></td>
+            <td class="non" rowspan="2"></td>
+            <td class="pex" rowspan="2"></td>
+        </tr>
+        <tr>
+            <td class="dat">12: Dec 19</td>
+            <td class="lec">Evaluating VR apps. Human factors</td>
+        </tr>
+        <tr>
+            <td class="vdt">&nbsp;&nbsp;- : Dec 26</td>
+            <td class="vac" colspan=7">Vacation</td>
+        </tr>
+        <tr>
+            <td class="vdt">&nbsp;&nbsp;- : Jan 2</td>
+            <td class="vac" colspan=7">Vacation</td>
+        </tr>
+        <tr>
+            <td class="dat">13: Jan 9</td>
+            <td class="lec">Project development and grading</td>
+            <td class="lab" rowspan="2">Project development and grading</td>
+            <td class="non" rowspan="2"></td>
+            <td class="non" rowspan="2"></td>
+            <td class="non" rowspan="2"></td>
+            <td class="non" rowspan="2"></td>
+            <td class="pex" rowspan="2"></td>
+        </tr>
+        <tr>
+            <td class="dat">14: Jan 16</td>
+            <td class="lec">Project development and grading</td>
+        </tr>
+    </table>
+    <br/>
+    <span class="SectionTitle">Resources</span>
+    <ul>
+        <li>Ray tracing
+            <ul>
+                <li><a href="res/rt/lighting-algorithm.png">Lighting algorithm diagram</a></li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+</body>
+</html>
+
+Content length is: 16620
