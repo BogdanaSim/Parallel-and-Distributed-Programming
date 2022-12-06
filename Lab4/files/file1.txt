@@ -1,0 +1,152 @@
+Site URL: www.eed.usv.ro/~vladv/SFP.html
+
+HTTP/1.1 200 OK
+Date: Wed, 23 Nov 2022 14:48:04 GMT
+Server: Apache
+Last-Modified: Thu, 30 Jan 2020 19:54:46 GMT
+ETag: "1e1c34e-1d4d-59d60d431ad80"
+Accept-Ranges: bytes
+Content-Length: 7501
+Vary: Accept-Encoding
+Content-Type: text/html
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=windows-1252">
+    <title>SFP</title>
+    <meta content="Evrsoft First Page" name="GENERATOR">
+    <style type="text/css">
+HTML {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+BODY {
+	PADDING-RIGHT: 20px; PADDING-LEFT: 20px; BACKGROUND: #ffffff; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; FONT-FAMILY: Georgia, Serif
+}
+#menu {
+	PADDING-RIGHT: 20px; PADDING-LEFT: 20px; BACKGROUND: #ffffff; LEFT: 20px; PADDING-BOTTOM: 20px; MARGIN: 0px; WIDTH: 150px; PADDING-TOP: 20px; POSITION: absolute
+}
+#menu A {
+	FONT-SIZE: 12px; LINE-HEIGHT: 2
+}
+#content {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; BACKGROUND: #ffffff; MARGIN-LEFT: 205px; OVERFLOW: auto; PADDING-TOP: 0px
+}
+H1 {
+	FONT-SIZE: large; PADDING-TOP: 10px
+}
+A {
+	TEXT-DECORATION: none
+}
+</style>
+  </head>
+  <body>
+    &nbsp;
+    <table style="WIDTH: 960px; HEIGHT: 110px" cellspacing="2"
+      cellpadding="2" bordercolor="#000000" bgcolor="#FFFFFF">
+      <tbody>
+        <tr>
+          <td rowspan="3" width="205"><img alt="" src="sigla.GIF"
+              width="116" height="102" border="0"></td>
+          <td height="60">
+            <p>&nbsp;</p>
+            <p><strong><font color="#0066FF" size="5">Sisteme flexibile
+                  de productie</font></strong><strong>&nbsp;</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td height="10"><font face="Trebuchet MS" color="#000000"
+              size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>&nbsp;&nbsp;&nbsp;</b></font></td>
+        </tr>
+        <tr>
+          <td height="10" bgcolor="#3366CC"><font face="Trebuchet MS"
+              color="#FFFFFF" size="2"><a href="index.html"><font
+                  color="#FFFFFF">&nbsp;Home&nbsp;</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <div id="menu" style="WIDTH: 170px; HEIGHT: 335px">
+      <p>&nbsp;</p>
+      <p><font face="Trebuchet MS" color="#0066FF"><a href="index.html"><font
+              face="Trebuchet MS" color="#0066FF">Home</font></a><br>
+          <a href="PCLP.html"><font face="Trebuchet MS" color="#0066FF">PCLP</font></a><br>
+          <a href="MN.html"><font face="Trebuchet MS" color="#0066FF">MN</font></a><br>
+          <a href="SFP.html"><font face="Trebuchet MS" color="#0066FF"><strong>SFP</strong></font></a><br>
+          <a href="CSI.html"><font face="Trebuchet MS" color="#0066FF">CSI</font></a><br>
+          <a href="Contact.html"><font face="Trebuchet MS"
+              color="#0066FF">Contact</font></a><br>
+        </font></p>
+    </div>
+    <h1>&nbsp;</h1>
+    <div id="content"> <font face="Trebuchet MS" size="2"><a
+          href="./SFP/Subiecte_2017.pdf">Subiecte examen</a></font><br>
+      <br>
+      <b><font face="Trebuchet MS" size="2">Suport curs:</font></b>
+      <ul>
+        <li><font face="Trebuchet MS" size="2"><a
+              href="./SFP/SFP-Curs1.pdf">Curs 1 - Introducere</a></font><br>
+        </li>
+        <li><font face="Trebuchet MS" size="2"><a
+              href="./SFP/SFP-Curs2.pdf">Curs 2 - Parametri roboti,
+              legaturi mecanice, coordonate</a></font><br>
+        </li>
+        <li><font face="Trebuchet MS" size="2"><a
+              href="./SFP/SFP-Curs3.pdf">Curs 3 - Structuri mecanice
+              purtatoare </a></font><br>
+        </li>
+        <li><font face="Trebuchet MS" size="2"><a
+              href="./SFP/SFP-Curs4.pdf">Curs 4 - Structuri mecanice de
+              orientare</a></font><br>
+        </li>
+        <li><font face="Trebuchet MS" size="2"><a
+              href="./SFP/SFP-Curs5.pdf">Curs 5 - Efectorul final,
+              dispozitive de prehensiune</a></font><br>
+        </li>
+        <li><font face="Trebuchet MS" size="2"><a
+              href="./SFP/SFP-Curs6.pdf">Curs 6 - Dispozitive de
+              prehensiune magnetice, adezive. Axa robotizata</a></font><br>
+        </li>
+        <li><font face="Trebuchet MS" size="2"><a
+              href="./SFP/SFP-Curs7.pdf">Curs 7 - Adaptoare de miscare</a></font><br>
+        </li>
+        <li><font face="Trebuchet MS" size="2"><a
+              href="./SFP/SFP-Curs_8.pdf">Curs 8 - Distribuitoare
+              hidraulice, sisteme de actionare pneumatice</a></font><br>
+        </li>
+        <li><font face="Trebuchet MS" size="2"><a
+              href="./SFP/SFP-Curs_9.pdf">Curs 9 - Sisteme de actionare
+              electrice</a></font><br>
+        </li>
+        <li><font face="Trebuchet MS" size="2"><a
+              href="./SFP/SFP-Curs_10.pdf">Curs 10 - Modelul geometric</a></font><br>
+        </li>
+        <li><font face="Trebuchet MS" size="2"><a
+              href="./SFP/SFP-Curs_11.pdf">Curs 11 - Sisteme flexibile
+              de productie. Evolutie, echipamente, configuratii</a></font><br>
+        </li>
+        <li><font face="Trebuchet MS" size="2"><a
+              href="./SFP/SFP-Curs_12.pdf">Curs 12 - Celula flexibila de
+              productie</a></font><br>
+        </li>
+        <li><font face="Trebuchet MS" size="2"><a
+              href="./SFP/SFP-Curs_13.pdf">Curs 13 - Sistemul de
+              transport</a></font><br>
+        </li>
+      </ul>
+      <br>
+      <b><font face="Trebuchet MS" size="2">Situatie:</font></b>
+      <ul>
+      <li><font face="Trebuchet MS" size="2">[<a href="./SFP/3541_final.xls">Grupa 3541 - Note examen</a>]</font><br></li>
+        <li><font face="Trebuchet MS" size="2">[<a
+                href="./SFP/3641_final.xls">Grupa 3641 - Note Examen</a></font>]</font><br>
+        </li>
+        <br>
+        <br>
+      </ul>
+    </div>
+  </body>
+</html>
+
+Content length is: 7501

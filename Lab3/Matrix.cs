@@ -32,15 +32,16 @@ namespace Lab3
 
         public override string ToString()
         {
-            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilder = new StringBuilder("[ ");
             for(int i=0;i<n;i++)
             {
                 for(int j=0;j<m; j++)
                 {
                     stringBuilder.Append(elements[i][j]).Append(" ");
                 }
-                stringBuilder.Append("\n");
+                stringBuilder.Append("]\n[ ");
             }
+            stringBuilder.Length-=2;
             return stringBuilder.ToString();
             //return $"{{{nameof(elements)}={elements}, {nameof(n)}={n.ToString()}, {nameof(m)}={m.ToString()}, {
             //    nameof(this[])}={this[]}}}";

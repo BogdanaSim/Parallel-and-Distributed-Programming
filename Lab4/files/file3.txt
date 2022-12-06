@@ -1,0 +1,341 @@
+Site URL: www.dspbotosani.ro/acte-normative/
+
+HTTP/1.1 200 OK
+Date: Wed, 23 Nov 2022 14:48:06 GMT
+Server: Apache
+X-Powered-By: PHP/7.3.33
+Link: <https://www.dspbotosani.ro/wp-json/>; rel="https://api.w.org/", <https://www.dspbotosani.ro/?p=32>; rel=shortlink
+Upgrade: h2,h2c
+Connection: Upgrade
+Vary: Accept-Encoding
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+2112
+<!DOCTYPE html>
+<!--// OPEN HTML //-->
+<html lang="ro-RO" class="no-js">
+<head>
+<!--// SITE META //-->
+<meta charset="UTF-8" />
+<!-- Mobile Specific Metas
+================================================== -->
+	    	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+   	   	<meta name="format-detection" content="telephone=no">
+<!--// PINGBACK & FAVICON //-->
+<link rel="pingback" href="http://www.dspbotosani.ro/xmlrpc.php" />
+<link rel="shortcut icon" href="https://www.dspbotosani.ro/wp-content/uploads/2019/07/cropped-logo_inspectie.png" /> 	<link rel="apple-touch-icon-precomposed" href="https://www.dspbotosani.ro/wp-content/uploads/2019/08/sasdasdasdasd.png">  	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://www.dspbotosani.ro/wp-content/uploads/2019/08/sasdasdasdasd.png">	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://www.dspbotosani.ro/wp-content/uploads/2019/08/sasdasdasdasd.png">	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.dspbotosani.ro/wp-content/uploads/2019/08/sasdasdasdasd.png"><!-- CSS
+================================================== -->
+<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="http://www.dspbotosani.ro/wp-content/themes/NativeChurch/css/ie8.css" media="screen" /><![endif]-->
+<title>Acte normative &#8211; DSP Boto??ani</title>
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="DSP Boto??ani &raquo; Flux" href="https://www.dspbotosani.ro/feed/" />
+<link rel="alternate" type="application/rss+xml" title="DSP Boto??ani &raquo; Flux comentarii" href="https://www.dspbotosani.ro/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/www.dspbotosani.ro\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.2.17"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])?!1:!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='http://www.dspbotosani.ro/wp-includes/css/dist/block-library/style.min.css?ver=5.2.17' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='http://www.dspbotosani.ro/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.1.4' type='text/css' media='all' />
+<link rel='stylesheet' id='cookie-notice-front-css'  href='http://www.dspbotosani.ro/wp-content/plugins/cookie-notice/css/front.min.css?ver=5.2.17' type='text/css' media='all' />
+<link rel='stylesheet' id='imic_bootstrap-css'  href='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/css/bootstrap.css?ver=2.9.9.3' type='text/css' media='all' />
+<link rel='stylesheet' id='imic_fontawesome-css'  href='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/css/font-awesome.css?ver=2.9.9.3' type='text/css' media='all' />
+<link rel='stylesheet' id='imic_animations-css'  href='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/css/animations.css?ver=2.9.9.3' type='text/css' media='all' />
+<link rel='stylesheet' id='imic_mediaelementplayer-css'  href='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/plugins/mediaelement/mediaelementplayer.css?ver=2.9.9.3' type='text/css' media='all' />
+<link rel='stylesheet' id='imic_main-css'  href='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/style.css?ver=2.9.9.3' type='text/css' media='all' />
+<link rel='stylesheet' id='imic_prettyPhoto-css'  href='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/plugins/prettyphoto/css/prettyPhoto.css?ver=2.9.9.3' type='text/css' media='all' />
+<link rel='stylesheet' id='imic_fullcalendar_css-css'  href='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/plugins/fullcalendar/fullcalendar.min.css?ver=2.9.9.3' type='text/css' media='all' />
+<link rel='stylesheet' id='imic_fullcalendar_print-css'  href='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/plugins/fullcalendar/fullcalendar.print.css?ver=2.9.9.3' type='text/css' media='print' />
+<link rel='stylesheet' id='redux-google-fonts-imic_options-css'  href='http://fonts.googleapis.com/css?family=Roboto+Condensed%7CVolkhov&#038;subset=cyrillic%2Clatin&#038;ver=1637138100' type='text/css' media='all' />
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var ajax_login_object = {"ajaxurl":"https:\/\/www.dspbotosani.ro\/wp-admin\/admin-ajax.php","loadingmessage":"Sending user info, please wait..."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/js/ajax-login-script.js?ver=5.2.17'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var cnArgs = {"ajaxurl":"https:\/\/www.dspbotosani.ro\/wp-admin\/admin-ajax.php","hideEffect":"fade","onScroll":"no","onScrollOffset":"100","cookieName":"cookie_notice_accepted","cookieValue":"true","cookieTime":"2592000","cookiePath":"\/","cookieDomain":"","redirection":"","cache":"","refuse":"yes","revoke_cookies":"0","revoke_cookies_opt":"automatic","secure":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-content/plugins/cookie-notice/js/front.min.js?ver=1.2.46'></script>
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/js/modernizr.js?ver=jquery'></script>
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/plugins/fullcalendar/lib/moment.min.js?ver=2.9.9.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var events = {"ajaxurl":"https:\/\/www.dspbotosani.ro\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/js/event_script.js?ver=5.2.17'></script>
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/js/helper-plugins.js?ver=2.9.9.3'></script>
+
+2e01
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/js/bootstrap.js?ver=2.9.9.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var initval = {"tmp":"http:\/\/www.dspbotosani.ro\/wp-content\/themes\/NativeChurch"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/js/init.js?ver=2.9.9.3'></script>
+<link rel='https://api.w.org/' href='https://www.dspbotosani.ro/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.dspbotosani.ro/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.dspbotosani.ro/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.2.17" />
+<link rel="canonical" href="https://www.dspbotosani.ro/acte-normative/" />
+<link rel='shortlink' href='https://www.dspbotosani.ro/?p=32' />
+<link rel="alternate" type="application/json+oembed" href="https://www.dspbotosani.ro/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.dspbotosani.ro%2Facte-normative%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.dspbotosani.ro/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.dspbotosani.ro%2Facte-normative%2F&#038;format=xml" />
+<style type="text/css">
+.text-primary, .btn-primary .badge, .btn-link,a.list-group-item.active > .badge,.nav-pills > .active > a > .badge, p.drop-caps:first-child:first-letter, .accent-color, .events-listing .event-detail h4 a, .featured-sermon h4 a, .page-header h1, .post-more, ul.nav-list-primary > li a:hover, .widget_recent_comments a, .navigation .megamenu-container .megamenu-sub-title, .woocommerce div.product span.price, .woocommerce div.product p.price, .woocommerce #content div.product span.price, .woocommerce #content div.product p.price, .woocommerce-page div.product span.price, .woocommerce-page div.product p.price, .woocommerce-page #content div.product span.price, .woocommerce-page #content div.product p.price, .woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price, .cause-item .progress-label, .payment-to-cause a, .event-ticket h4, .event-ticket .ticket-ico{color:#1e73be;}a:hover{color:#1e73be;}.events-listing .event-detail h4 a:hover, .featured-sermon h4 a:hover, .featured-gallery p, .post-more:hover, .widget_recent_comments a:hover{opacity:.9}p.drop-caps.secondary:first-child:first-letter, .accent-bg, .fa.accent-color, .btn-primary,.btn-primary.disabled,.btn-primary[disabled],fieldset[disabled] .btn-primary,.btn-primary.disabled:hover,.btn-primary[disabled]:hover,fieldset[disabled] .btn-primary:hover,.btn-primary.disabled:focus,.btn-primary[disabled]:focus,fieldset[disabled] .btn-primary:focus,.btn-primary.disabled:active,.btn-primary[disabled]:active,fieldset[disabled] .btn-primary:active,.btn-primary.disabled.active,.btn-primary[disabled].active,fieldset[disabled] .btn-primary.active,.dropdown-menu > .active > a,.dropdown-menu > .active > a:hover,.dropdown-menu > .active > a:focus,.nav-pills > li.active > a,.nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus,.pagination > .active > a,.pagination > .active > span,.pagination > .active > a:hover,.pagination > .active > span:hover,.pagination > .active > a:focus,.pagination > .active > span:focus,.label-primary,.progress-bar,a.list-group-item.active,a.list-group-item.active:hover,a.list-group-item.active:focus,.panel-primary > .panel-heading, .carousel-indicators .active, .owl-theme .owl-controls .owl-page.active span, .owl-theme .owl-controls.clickable .owl-page:hover span, hr.sm, .flex-control-nav a:hover, .flex-control-nav a.flex-active, .title-note, .timer-col #days, .featured-block strong, .featured-gallery, .nav-backed-header, .next-prev-nav a, .event-description .panel-heading, .media-box .media-box-wrapper, .staff-item .social-icons a, .accordion-heading .accordion-toggle.active, .accordion-heading:hover .accordion-toggle, .accordion-heading:hover .accordion-toggle.inactive, .nav-tabs li a:hover, .nav-tabs li a:active, .nav-tabs li.active a, .site-header .social-icons a, .timeline > li > .timeline-badge, .header-style3 .toprow, .featured-star, .featured-event-time,.goingon-events-floater-inner, .ticket-cost, .bbp-search-form input[type="submit"]:hover{background-color: #1e73be;}.fc-event{background-color: #1e73be;}.mejs-controls .mejs-time-rail .mejs-time-loaded, p.demo_store, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce #respond input#submit.alt, .woocommerce #content input.button.alt, .woocommerce-page a.button.alt, .woocommerce-page button.button.alt, .woocommerce-page input.button.alt, .woocommerce-page #respond input#submit.alt, .woocommerce-page #content input.button.alt, .woocommerce span.onsale, .woocommerce-page span.onsale, .wpcf7-form .wpcf7-submit, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle, .woocommerce-page .widget_price_filter .ui-slider .ui-slider-handle, .woocommerce .widget_layered_nav ul li.chosen a, .woocommerce-page .widget_layered_nav ul li.chosen a{background: #1e73be;}.share-buttons.share-buttons-tc > li > a{background: . $customColor . !important;}.btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.open .dropdown-toggle.btn-primary, .next-prev-nav a:hover, .staff-item .social-icons a:hover, .site-header .social-icons a:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce #content input.button.alt:hover, .woocommerce-page a.button.alt:hover, .woocommerce-page button.button.alt:hover, .woocommerce-page input.button.alt:hover, .woocommerce-page #respond input#submit.alt:hover, .woocommerce-page #content input.button.alt:hover, .woocommerce a.button.alt:active, .woocommerce button.button.alt:active, .woocommerce input.button.alt:active, .woocommerce #respond input#submit.alt:active, .woocommerce #content input.button.alt:active, .woocommerce-page a.button.alt:active, .woocommerce-page button.button.alt:active, .woocommerce-page input.button.alt:active, .woocommerce-page #respond input#submit.alt:active, .woocommerce-page #content input.button.alt:active, .wpcf7-form .wpcf7-submit{background: #1e73be;opacity:.9}.woocommerce .woocommerce-info, .woocommerce-page .woocommerce-info, .woocommerce .woocommerce-message, .woocommerce-page .woocommerce-message{border-top-color: #1e73be;}.nav .open > a,.nav .open > a:hover,.nav .open > a:focus,.pagination > .active > a,.pagination > .active > span,.pagination > .active > a:hover,.pagination > .active > span:hover,.pagination > .active > a:focus,.pagination > .active > span:focus,a.thumbnail:hover,a.thumbnail:focus,a.thumbnail.active,a.list-group-item.active,a.list-group-item.active:hover,a.list-group-item.active:focus,.panel-primary,.panel-primary > .panel-heading, .fc-events, .event-ticket-left .ticket-handle{border-color:#1e73be;}.fc-event{border-color:#1e73be;}.panel-primary > .panel-heading + .panel-collapse .panel-body{border-top-color:#1e73be;}.panel-primary > .panel-footer + .panel-collapse .panel-body{border-bottom-color:#1e73be;}blockquote{border-left-color:#1e73be;}@media (min-width:1200px){.container{width:1170px;} .navigation{width:1140px}}
+		body.boxed .body{max-width:1210px}
+		@media (min-width: 1200px) {body.boxed .body .site-header, body.boxed .body .main-menu-wrapper{width:1210px;}}.recurring-info-icon{display:inline-block;}@media only screen and (max-width: 767px) {.home .hero-slider, .home .slider-revolution-new{top:0!important; margin-bottom:0!important;}}.event-detail h4 a[href^="https://www.google"]:before, .events-grid .grid-content h3 a[href^="https://www.google"]:before, h3.timeline-title a[href^="https://www.google"]:before{display:inline-block;}
+			.content{min-height:400px;}.site-header .topbar{height:80px;}.site-header h1.logo{height:65px;}.home .hero-slider{top:-81px;margin-bottom:-81px;}.home .slider-revolution-new{top:-81px;margin-bottom:-81px;}.header-style4 .top-navigation > li ul{top:80px;}.header-style4 .top-navigation > li > a{line-height:80px;}@media only screen and (max-width: 992px) {.main-menu-wrapper{top:80px;}}@media only screen and (max-width: 992px) {.header-style3 .main-menu-wrapper{top:119px;}.header-style4 #top-nav-clone{top:80px;}}@media only screen and (max-width: 767px) {.header-style3 .main-menu-wrapper{top:159px;}}
+/*========== User Custom CSS Styles ==========*/
+#header{
+margin: 0 auto;
+}</style>
+<link rel="icon" href="https://www.dspbotosani.ro/wp-content/uploads/2019/07/cropped-logo_inspectie-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.dspbotosani.ro/wp-content/uploads/2019/07/cropped-logo_inspectie-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://www.dspbotosani.ro/wp-content/uploads/2019/07/cropped-logo_inspectie-180x180.png" />
+<meta name="msapplication-TileImage" content="https://www.dspbotosani.ro/wp-content/uploads/2019/07/cropped-logo_inspectie-270x270.png" />
+<style type="text/css" title="dynamic-css" class="options-output">.content{padding-top:50px;padding-bottom:50px;}.site-header .topbar{background-color:rgba(255,255,255,0.8);}.site-header .topbar{background-position:right bottom;}.is-sticky .main-menu-wrapper, .header-style4 .is-sticky .site-header .topbar, .header-style2 .is-sticky .main-menu-wrapper{background-color:rgba(255,255,255,0.8);}.navigation, .header-style2 .main-menu-wrapper{background-color:#f8f7f3;}.navigation > ul > li ul{background-color:#ffffff;}.navigation > ul > li.megamenu > ul:before, .navigation > ul > li ul:before{border-bottom-color:#ffffff;}.navigation > ul > li ul li ul:before{border-right-color:#ffffff;}.navigation > ul > li > ul li > a{border-bottom:1px solid #f8f7f3;}.site-header .menu-toggle{color:#5e5e5e;font-size:12px;}.top-navigation > li ul{background-color:#ffffff;}.top-navigation > li.megamenu > ul:before, .top-navigation > li ul:before{border-bottom-color:#ffffff;}.top-navigation > li ul li ul:before{border-right-color:#ffffff;}.top-navigation > li > ul li > a{border-bottom:1px solid #f8f7f3;}.site-footer{background-color:#F8F7F3;}.site-footer{padding-top:50px;padding-bottom:50px;}.site-footer .widgettitle{color:#333333;}.site-footer .listing-header, .site-footer .post-title, .site-footer .listing .item, .site-footer .post-meta, .site-footer .widget h4.footer-widget-title, .site-footer .widget ul > li{border-bottom:1px solid #ECEAE4;}.site-footer-bottom{background-color:#ECEAE4;}.site-footer-bottom{padding-top:20px;padding-bottom:20px;}.site-footer-bottom .social-icons a{background-color:#999999;}.site-footer-bottom .social-icons a:hover{background-color:#666666;}.site-footer-bottom .social-icons a{height:25px;width:25px;}.site-footer-bottom .social-icons a{line-height:25px;font-size:14px;}h1,h2,h3,h4,h5,h6,body,.event-item .event-detail h4,.site-footer-bottom{font-family:'Bookman Old Style', serif;word-spacing:0px;letter-spacing:0px;}h4,.title-note,.btn,.top-navigation,.navigation,.notice-bar-title strong,.timer-col #days, .timer-col #hours, .timer-col #minutes, .timer-col #seconds,.event-date,.event-date .date,.featured-sermon .date,.page-header h1,.timeline > li > .timeline-badge span,.woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce #content input.button, .woocommerce-page a.button, .woocommerce-page button.button, .woocommerce-page input.button, .woocommerce-page #respond input#submit, .woocommerce-page #content input.button{font-family:"Roboto Condensed";}blockquote p,.cursive,.meta-data,.fact{font-family:Volkhov;word-spacing:0px;letter-spacing:0px;}</style>
+24c2
+</head>
+<!--// CLOSE HEAD //-->
+<body class="page-template-default page page-id-32 cookies-not-set">
+	<div class="body header-style1">
+		     	<!-- Start Site Header -->
+       	<header class="site-header">
+      		<div class="topbar">
+            	<div class="container hs4-cont">
+                  	<div class="row">
+               			<div id="top-nav-clone"></div>
+                  			<div class="col-md-4 col-sm-6 col-xs-8">
+                           		<h1 class="logo">
+                              		                                     
+                                                                           <a href="https://www.dspbotosani.ro" class="default-logo" title="DSP Boto??ani"><img src="https://www.dspbotosani.ro/wp-content/uploads/2019/08/header-1024x107.png" alt="DSP Boto??ani"></a>
+                                                                                                                <a href="https://www.dspbotosani.ro" title="DSP Boto??ani" class="retina-logo"><img src="https://www.dspbotosani.ro/wp-content/uploads/2019/08/header-1024x107.png" alt="DSP Boto??ani" width="" height=""></a>
+                                                                    </h1>
+                            </div>
+                            <div class="col-md-8 col-sm-6 col-xs-4 hs4-menu"><div class="enabled-top-mobile"><a href="#" class="visible-sm visible-xs menu-toggle"><i class="fa fa-bars"></i> </a></div></div>                        </div>
+                    </div>
+                </div>
+				                                            <div class="main-menu-wrapper">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <nav class="navigation">
+                  <ul id="menu-menu-1" class="sf-menu"><li  class="menu-item-171 menu-item menu-item-type-post_type menu-item-object-page menu-item-home "><a href="https://www.dspbotosani.ro/">Contact<span class="nav-line"></span></a><li  class="menu-item-34 menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-32 current_page_item "><a href="https://www.dspbotosani.ro/acte-normative/">Acte normative<span class="nav-line"></span></a><li  class="menu-item-36 menu-item menu-item-type-post_type menu-item-object-page "><a href="https://www.dspbotosani.ro/informare/">INFORMARE<span class="nav-line"></span></a><li  class="menu-item-37 menu-item menu-item-type-post_type menu-item-object-page "><a href="https://www.dspbotosani.ro/declaratii-avere/">DECLARATII DE AVERE SI INTERESE<span class="nav-line"></span></a><li  class="menu-item-130 menu-item menu-item-type-taxonomy menu-item-object-category "><a href="https://www.dspbotosani.ro/category/comunicate-de-presa/">COMUNICATE DE PRESA<span class="nav-line"></span></a><li  class="menu-item-38 menu-item menu-item-type-post_type menu-item-object-page "><a href="https://www.dspbotosani.ro/utile/">FORMULARE , LINK-URI UTILE<span class="nav-line"></span></a><li  class="menu-item-261 menu-item menu-item-type-post_type menu-item-object-page "><a href="https://www.dspbotosani.ro/unitati-sanitare-2/">Unit????i Sanitare<span class="nav-line"></span></a><li  class="menu-item-1024 menu-item menu-item-type-post_type menu-item-object-page "><a href="https://www.dspbotosani.ro/certificate-medicale-a5-copii-cu-handicap/">Certificate medicale A5 Copii cu handicap<span class="nav-line"></span></a><li  class="menu-item-1059 menu-item menu-item-type-post_type menu-item-object-page "><a href="https://www.dspbotosani.ro/centre-de-permanenta-garzi/">CENTRE DE PERMANENTA    GARZI<span class="nav-line"></span></a><li  class="menu-item-1094 menu-item menu-item-type-post_type menu-item-object-page "><a href="https://www.dspbotosani.ro/concursuri-2021/">CONCURSURI 2021 &#8211; 2022<span class="nav-line"></span></a><li  class="menu-item-1286 menu-item menu-item-type-post_type menu-item-object-page "><a href="https://www.dspbotosani.ro/rezidentiat-sesiunea-21-11-2021/">REZIDENTIAT SESIUNEA 2022<span class="nav-line"></span></a><li  class="menu-item-1383 menu-item menu-item-type-post_type menu-item-object-page "><a href="https://www.dspbotosani.ro/informatii-utile-pentru-servicii-funerare/">INFORMATII UTILE PENTRU SERVICII FUNERARE<span class="nav-line"></span></a><li  class="menu-item-1522 menu-item menu-item-type-post_type menu-item-object-page "><a href="https://www.dspbotosani.ro/arhiva-liste-limita-de-incidenta-cumulata-la-14-zile/">ARHIVA LISTE LIMITA DE INCIDENTA CUMULATA LA 14 ZILE<span class="nav-line"></span></a><li  class="menu-item-1739 menu-item menu-item-type-post_type menu-item-object-page "><a href="https://www.dspbotosani.ro/economic/">ECONOMIC<span class="nav-line"></span></a><li  class="menu-item-1759 menu-item menu-item-type-post_type menu-item-object-page "><a href="https://www.dspbotosani.ro/plf-legislatie-comunicare-contraventii/">PLF legislatie , comunicare contraventii<span class="nav-line"></span></a><li  class="menu-item-1916 menu-item menu-item-type-post_type menu-item-object-page "><a href="https://www.dspbotosani.ro/rapoarte-calitate-apa/">RAPOARTE CALITATE APA<span class="nav-line"></span></a></ul>                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                                                </header>
+            <!-- End Site Header -->
+                            <!-- Start Nav Backed Header -->
+                                        <style type="text/css">
+.body ol.breadcrumb{padding-top:90px;}</style>
+                <div class="nav-backed-header parallax" style="background-image:url();">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ol class="breadcrumb">
+                                                                    </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                <!-- End Nav Backed Header --> 
+                <!-- Start Page Header -->
+                <div class="page-header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12"><h1>Acte normative</h1></div>                            </div>
+                        </div>
+                    </div>
+                    <!-- End Page Header --> 
+                    <div class="main" role="main">
+                     <div id="content" class="content full">    <!-- start page section -->
+    <section class="page-section">
+    	<div class="container">
+            <div class="row">
+                <!-- start post -->
+                <article class="col-md-12">
+                    <section class="page-content">
+                        <p><a href="https://www.dspbotosani.ro/wp-content/uploads/2020/06/Model-declaratie-Ordin-414-2020.pdf">Model-declaratie-Ordin-414-2020</a></p>
+<p><a href="https://www.dspbotosani.ro/wp-content/uploads/2020/06/ORDIN-nr.414-din-2020.doc">ORDIN nr.414 din 2020</a></p>
+
+<p><a href="https://www.dspbotosani.ro/wp-content/uploads/2020/06/Precizari-aplicare-Ord-414.pdf">Precizari aplicare Ord 414??</a></p>
+<p><a href="https://www.dspbotosani.ro/wp-content/uploads/2020/06/Ordin-555_2020.pdf">Ordin 555_2020</a></p>
+<p><a href="https://www.dspbotosani.ro/wp-content/uploads/2020/06/Ord.-753-2020-modificare-Ord-555.pdf">Ord. 753-2020 modificare Ord 555</a></p>
+<p><a href="https://www.dspbotosani.ro/wp-content/uploads/2020/06/ORDIN-nr.1030-2009.doc">ORDIN nr.1030 2009</a></p>
+<p><a href="https://www.dspbotosani.ro/wp-content/uploads/2020/06/Ordin-modificare-1030.pdf">Ordin-modificare 1030</a></p>
+<p><a href="https://www.dspbotosani.ro/wp-content/uploads/2021/01/Instructiunea-nr.-51-din-20.01.2021-ref-vaccinare-ARNm-femei-gravide-sau-care-alapteaza.pdf">Instructiunea nr. 51 din 20.01.2021 ref vaccinare ARNm femei gravide sau care alapteaza</a></p>
+<p><a href="https://www.dspbotosani.ro/wp-content/uploads/2021/01/Instructiunea-nr.-52-din-21.01.2021-ref-vaccinare-ARNm-pers-dializate-si-nedeplasabile.pdf">Instructiunea nr. 52 din 21.01.2021 ref vaccinare ARNm pers dializate si nedeplasabile</a></p>
+                    </section>
+					                        <div class="share-bar"><ul class="share-buttons share-buttons-tc"><li class="facebook-share"><a href="https://www.facebook.com/sharer/sharer.php?u=https://www.dspbotosani.ro/acte-normative/&amp;t=Acte normative" target="_blank" title="Share on Facebook"><i class="fa fa-facebook"></i></a></li><li class="email-share"><a href="mailto:?subject=Acte normative&amp;body=Model-declaratie-Ordin-414-2020 ORDIN nr.414 din 2020 Precizari aplicare Ord 414?? Ordin 555_2020 Ord. 753-2020 modificare Ord 555 ORDIN nr.1030 2009 Ordin-modificare 1030 Instructiunea nr. 51 din 20.01.2021 ref vaccinare ARNm femei gravide sau care alapteaza Instructiunea nr. 52 din 21.01.2021 ref vaccinare ARNm pers dializate si nedeplasabile:https://www.dspbotosani.ro/acte-normative/" target="_blank" title="Email"><i class="fa fa-envelope"></i></a></li></ul>
+            </div>
+2059
+                                    </article>
+                <!-- end post -->
+            </div>
+        </div>
+    </section>
+</div></div><!-- Start Footer -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+        	<div class="col-md-4 col-sm-4 widget footer-widget widget_calendar"><h4 class="widgettitle">Calendar</h4><div id="calendar_wrap" class="calendar_wrap"><table id="wp-calendar">
+	<caption>noiembrie 2022</caption>
+	<thead>
+	<tr>
+		<th scope="col" title="luni">L</th>
+		<th scope="col" title="mar??i">Ma</th>
+		<th scope="col" title="miercuri">Mi</th>
+		<th scope="col" title="joi">J</th>
+		<th scope="col" title="vineri">V</th>
+		<th scope="col" title="s??mb??t??">S</th>
+		<th scope="col" title="duminic??">D</th>
+	</tr>
+	</thead>
+
+	<tfoot>
+	<tr>
+		<td colspan="3" id="prev"><a href="https://www.dspbotosani.ro/2020/03/">&laquo; mart.</a></td>
+		<td class="pad">&nbsp;</td>
+		<td colspan="3" id="next" class="pad">&nbsp;</td>
+	</tr>
+	</tfoot>
+
+	<tbody>
+	<tr>
+		<td colspan="1" class="pad">&nbsp;</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+	</tr>
+	<tr>
+		<td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+	</tr>
+	<tr>
+		<td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
+	</tr>
+	<tr>
+		<td>21</td><td>22</td><td id="today">23</td><td>24</td><td>25</td><td>26</td><td>27</td>
+	</tr>
+	<tr>
+		<td>28</td><td>29</td><td>30</td>
+		<td class="pad" colspan="4">&nbsp;</td>
+	</tr>
+	</tbody>
+	</table></div></div><div class="col-md-4 col-sm-4 widget footer-widget widget_pages"><h4 class="widgettitle">Pagini</h4>		<ul>
+			<li class="page_item page-item-32 current_page_item"><a href="https://www.dspbotosani.ro/acte-normative/" aria-current="page">Acte normative</a></li>
+<li class="page_item page-item-1520"><a href="https://www.dspbotosani.ro/arhiva-liste-limita-de-incidenta-cumulata-la-14-zile/">ARHIVA LISTE LIMITA DE INCIDENTA CUMULATA LA 14 ZILE</a></li>
+<li class="page_item page-item-1058"><a href="https://www.dspbotosani.ro/centre-de-permanenta-garzi/">CENTRE DE PERMANENTA    GARZI</a></li>
+<li class="page_item page-item-1018"><a href="https://www.dspbotosani.ro/certificate-medicale-a5-copii-cu-handicap/">Certificate medicale A5 Copii cu handicap</a></li>
+<li class="page_item page-item-1093"><a href="https://www.dspbotosani.ro/concursuri-2021/">CONCURSURI 2021 &#8211; 2022</a></li>
+<li class="page_item page-item-82"><a href="https://www.dspbotosani.ro/">Contact</a></li>
+<li class="page_item page-item-26"><a href="https://www.dspbotosani.ro/declaratii-avere/">DECLARATII DE AVERE SI INTERESE</a></li>
+<li class="page_item page-item-1737"><a href="https://www.dspbotosani.ro/economic/">ECONOMIC</a></li>
+<li class="page_item page-item-21"><a href="https://www.dspbotosani.ro/utile/">FORMULARE , LINK-URI UTILE</a></li>
+<li class="page_item page-item-28"><a href="https://www.dspbotosani.ro/informare/">INFORMARE</a></li>
+<li class="page_item page-item-1381"><a href="https://www.dspbotosani.ro/informatii-utile-pentru-servicii-funerare/">INFORMATII UTILE PENTRU SERVICII FUNERARE</a></li>
+<li class="page_item page-item-1758"><a href="https://www.dspbotosani.ro/plf-legislatie-comunicare-contraventii/">PLF legislatie , comunicare contraventii</a></li>
+<li class="page_item page-item-1910"><a href="https://www.dspbotosani.ro/rapoarte-calitate-apa/">RAPOARTE CALITATE APA</a></li>
+<li class="page_item page-item-1285"><a href="https://www.dspbotosani.ro/rezidentiat-sesiunea-21-11-2021/">REZIDENTIAT SESIUNEA 2022</a></li>
+<li class="page_item page-item-231"><a href="https://www.dspbotosani.ro/unitati-sanitare-2/">Unit????i Sanitare</a></li>
+		</ul>
+			</div><div class="widget_text col-md-4 col-sm-4 widget footer-widget widget_custom_html"><h4 class="widgettitle">Loca??ie</h4><div class="textwidget custom-html-widget"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2682.7040951410163!2d26.644610115875047!3d47.74839578616474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4734e97c9ac005c1%3A0x91655dfa95e3af1b!2zRGlyZWPFo2lhIGRlIFPEg27Eg3RhdGUgUHVibGljxIMgQm90b8WfYW5p!5e0!3m2!1sro!2sro!4v1565075630990!5m2!1sro!2sro" width="350" height="250" frameborder="0" style="border:0" allowfullscreen></iframe></div></div>        </div>
+    </div>
+</footer>
+<footer class="site-footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="copyrights-col-left col-md-6 col-sm-6">                <p>&copy; 2022 DSP Boto??ani. Toate drepturile rezervate</p>
+                </div>            <div class="copyrights-col-right col-md-6 col-sm-6">
+                <div class="social-icons">
+                                      </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+<!-- End Boxed Body -->
+<!-- LIGHTBOX INIT -->
+		<script>
+			jQuery(document).ready(function() {
+               jQuery("a[data-rel^='prettyPhoto']").prettyPhoto({
+				  opacity: 0.5,
+				  social_tools: "",
+				  deeplinking: false,
+				  allow_resize: 1,
+				  show_title: true,
+				  theme: 'pp_default',
+				});
+				/*jQuery('.sort-source a').click(function(){
+					var sortval = jQuery(this).parent().attr('data-option-value');
+					jQuery(".sort-destination li a").removeAttr('data-rel');
+    				jQuery(".sort-destination li a").attr('data-rel', "prettyPhoto["+sortval+"]");
+				});*/
+            });
+		</script>
+		 <script>
+	 jQuery(document).ready(function(){
+		jQuery('a[href^="https://www.google.com/calendar"]').attr('target','_blank');
+	});
+	</script>
+   <script type ="text/javascript">jQuery(document).ready(function(){
+
+});</script><script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/www.dspbotosani.ro\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.1.4'></script>
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/plugins/prettyphoto/js/prettyphoto.js?ver=2.9.9.3'></script>
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/js/waypoints.js?ver=2.9.9.3'></script>
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/plugins/mediaelement/mediaelement-and-player.min.js?ver=2.9.9.3'></script>
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/plugins/flexslider/js/jquery.flexslider.js?ver=2.9.9.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var upcoming_data = {"c_time":"1669214886"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/plugins/countdown/js/jquery.countdown.min.js?ver=2.9.9.3'></script>
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/js/sticky.js?ver=5.2.17'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var agent_register = {"ajaxurl":"https:\/\/www.dspbotosani.ro\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/js/agent-register.js?ver=5.2.17'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var urlajax = {"ajaxurl":"https:\/\/www.dspbotosani.ro\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-content/themes/NativeChurch/js/event_ajax.js?ver=5.2.17'></script>
+<script type='text/javascript' src='http://www.dspbotosani.ro/wp-includes/js/wp-embed.min.js?ver=5.2.17'></script>
+
+			<div id="cookie-notice" role="banner" class="cn-bottom bootstrap" style="color: #fff; background-color: #7a7a7a;"><div class="cookie-notice-container"><span id="cn-notice-text"></span><a href="#" id="cn-accept-cookie" data-cookie-set="accept" class="cn-set-cookie cn-button bootstrap button">Da</a><a href="#" id="cn-refuse-cookie" data-cookie-set="refuse" class="cn-set-cookie cn-button bootstrap button">No</a>
+				</div>
+				<div class="cookie-notice-revoke-container"><a href="#" class="cn-revoke-cookie cn-button bootstrap button">Revoke cookies</a></div>
+			</div> </body>
+</html>
+0
+
+
+Content length is: 37924
