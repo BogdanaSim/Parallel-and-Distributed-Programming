@@ -1,242 +1,157 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 
 namespace Lab5
 {
     public class Multiply
     {
-        public Polynomial polynomial1 { get; set; }
-        public Polynomial polynomial2 { get; set; }
+        public Polynomial Polynomial1 { get; set; }
+        public Polynomial Polynomial2 { get; set; }
+        public Polynomial Result { get; set; }
 
-        public Polynomial result { get; set; }
+        public Dictionary<int, List<(int, int)>> validPairs = new();
 
-        public Stopwatch stopwatch = new Stopwatch();
+        public bool AllowPrint { get; set; } = false;
+
         public Multiply(Polynomial polynomial1, Polynomial polynomial2)
         {
-            this.polynomial1 = polynomial1;
-            this.polynomial2 = polynomial2;
-            SynchronizedCollection<float> resultList = new SynchronizedCollection<float>();
-            int m = this.polynomial1.GetDegreePolynomial();
-            int n = this.polynomial2.GetDegreePolynomial();
+            this.Polynomial1 = polynomial1;
+            this.Polynomial2 = polynomial2;
+            SynchronizedCollection<float> resultList = new();
+            int m = this.Polynomial1.GetDegreePolynomial();
+            int n = this.Polynomial2.GetDegreePolynomial();
             for (int i = 0; i < m + n - 1; i++)
             {
                 resultList.Add(0);
+                validPairs.Add(i, new List<(int, int)>());
+                for (int k = 0; k < m; k++)
+                    for (int q = 0; q < n; q++)
+                    {
+
+                        if (k + q == i)
+                        {
+                            validPairs[i].Add((k, q));
+                        }
+                    }
             }
-            this.result = new Polynomial(resultList);
+            this.Result = new Polynomial(resultList);
+
+  
         }
 
         public void ResetResult()
         {
-            this.result.coefficients.Clear();
-            SynchronizedCollection<float> resultList = this.result.coefficients;
-            int m = this.polynomial1.GetDegreePolynomial();
-            int n = this.polynomial2.GetDegreePolynomial();
-            for (int i = 0; i < m + n - 1; i++)
-            {
-                resultList.Add(0);
-            }
+            int m = this.Polynomial1.GetDegreePolynomial();
+            int n = this.Polynomial2.GetDegreePolynomial();
+            this.Result.Coefficients = GenerateZeroPolynomial(m + n - 1);
         }
 
         public void MultiplyRegularSequential()
         {
             this.ResetResult();
-            //this.stopwatch = Stopwatch.StartNew();
             Stopwatch stopwatch1 = Stopwatch.StartNew();
-            int m = this.polynomial1.GetDegreePolynomial();
-            int n = this.polynomial2.GetDegreePolynomial();
-            SynchronizedCollection<float> resultList = this.result.coefficients;
+            int m = this.Polynomial1.GetDegreePolynomial();
+            int n = this.Polynomial2.GetDegreePolynomial();
+            SynchronizedCollection<float> resultList = this.Result.Coefficients;
             for (int i = 0; i < m; i++)
                 for (int j = 0; j < n; j++)
                 {
-                    resultList[i + j] += this.polynomial1.coefficients[i] * this.polynomial2.coefficients[j];
+                    resultList[i + j] += this.Polynomial1.Coefficients[i] * this.Polynomial2.Coefficients[j];
                 }
-            //stopwatch.Stop();
             stopwatch1.Stop();
-            Console.WriteLine("Elapsed time for MultiplyRegularSequential: " + stopwatch1.ElapsedMilliseconds.ToString() +" milliseconds");
-            Console.WriteLine("Result for MultiplyRegularSequential: " + result.ToString());
+            if (AllowPrint) //used to avoid the results for the first execution of this function
+            {
+                Console.WriteLine("Elapsed time for MultiplyRegularSequential: " + stopwatch1.Elapsed.ToString());
+                Console.WriteLine("Result for MultiplyRegularSequential: " + Result.ToString());
+            }
         }
 
         public void MultiplyRegularParallel(int noTasks)
         {
             this.ResetResult();
-            //this.stopwatch = Stopwatch.StartNew();
-            Stopwatch stopwatch1 = Stopwatch.StartNew();
-            int noCoefficients = this.result.GetDegreePolynomial() / noTasks;
-            int extra = this.result.GetDegreePolynomial() % noTasks;
-            List<Task> tasks = new List<Task>();
+            
+            int noCoefficients = this.Result.GetDegreePolynomial() / noTasks;
+            int extra = this.Result.GetDegreePolynomial() % noTasks;
+            List<Task> tasks = new();
             int i0 = 0, j0 = 0;
+            Stopwatch stopwatch1 = Stopwatch.StartNew();
             for (int i = 0; i < noTasks; i++)
             {
                 j0 = i0 + noCoefficients;
-                if (i == noTasks - 1)
+                if (i == noTasks - 1) //give the last task to compute the remaining coefficients
                 {
                     j0 += extra;
-                   
                 }
-                int copyI = i0, copyJ = j0;
-                tasks.Add(Task.Run(() =>
-                MultiplyTaskRegularParallel(copyI, copyJ)));
+                int copyI = i0, copyJ = j0; //the degree of the coefficients which the task will compute
+                tasks.Add(Task.Run(() => MultiplyTaskRegularParallel(copyI, copyJ)));
                 i0 = j0;
             }
             Task.WhenAll(tasks).Wait();
-            //stopwatch.Stop();
             stopwatch1.Stop();
-            Console.WriteLine("Elapsed time for MultiplyRegularParallel: " + stopwatch1.ElapsedMilliseconds.ToString() + " milliseconds");
-            Console.WriteLine("Result for MultiplyRegularParallel: "+result.ToString());
+            if (AllowPrint)
+            {
+                Console.WriteLine("Elapsed time for MultiplyRegularParallel: " + stopwatch1.Elapsed.ToString());
+                Console.WriteLine("Result for MultiplyRegularParallel: " + Result.ToString());
+            }
         }
 
         public void MultiplyTaskRegularParallel(int i0, int j0)
         {
-            int m = this.polynomial1.GetDegreePolynomial();
-            int n = this.polynomial2.GetDegreePolynomial();
-            SynchronizedCollection<float> resultList = this.result.coefficients;
-
+            int m = this.Polynomial1.GetDegreePolynomial();
+            int n = this.Polynomial2.GetDegreePolynomial();
+            SynchronizedCollection<float> resultList = this.Result.Coefficients;
             for (int k = i0; k < j0; k++)
-                for (int i = 0; i < m; i++)
-                {
-                    int j = k - i;
-                    if (j >= 0 && j < n)
+                //for (int i = 0; i < m; i++)
+                //{
+                    //int j = k - i;
+                    //if (j >= 0 && j < n) //check if the sum of the indexes is a valid degree for the result polynomial
+                    //{
+                    //    resultList[i + j] += this.Polynomial1.Coefficients[i] * this.Polynomial2.Coefficients[j];
+                    //}
+                    foreach (var pair in validPairs[k])
                     {
-                        resultList[i + j] += this.polynomial1.coefficients[i] * this.polynomial2.coefficients[j];
+                        int p0 = pair.Item1, p1 = pair.Item2;
+                        resultList[p0 + p1] += this.Polynomial1.Coefficients[p0] * this.Polynomial2.Coefficients[p1];
+
                     }
-                }
+               // }
         }
 
         public void MultiplyKaratsubaSequential()
         {
-            //TODO: check this https://stackoverflow.com/questions/16502997/karatsuba-multiplication-for-unequal-size-non-power-of-2-operands
-            //this.ResetResult();
-            //this.stopwatch = Stopwatch.StartNew();
+            //used this https://stackoverflow.com/questions/16502997/karatsuba-multiplication-for-unequal-size-non-power-of-2-operands
+            SynchronizedCollection<float> A = FixSize(this.Polynomial1.GetCopyCoefficients());
+            SynchronizedCollection<float> B = FixSize(this.Polynomial2.GetCopyCoefficients());
             Stopwatch stopwatch1 = Stopwatch.StartNew();
-            SynchronizedCollection<float> resultList = this.result.coefficients;
-            
+            SynchronizedCollection<float> resultList = this.Result.Coefficients;
             resultList.Clear();
-            SynchronizedCollection<float> resultRecursive = MultiplyKaratsubaSequentialRecursive(this.polynomial1.coefficients, this.polynomial2.coefficients);
-            //stopwatch.Stop();
+            SynchronizedCollection<float> resultRecursive = MultiplyKaratsubaSequentialRecursive(A, B);
             stopwatch1.Stop();
-            int m = this.polynomial1.GetDegreePolynomial();
-            int n = this.polynomial2.GetDegreePolynomial();
+            int m = this.Polynomial1.GetDegreePolynomial();
+            int n = this.Polynomial2.GetDegreePolynomial();
             for (int i = 0; i < m + n - 1; i++)
             {
                 resultList.Add(resultRecursive[i]);
             }
-            
-            Console.WriteLine("Elapsed time for MultiplyKaratsubaSequential: " + stopwatch1.ElapsedMilliseconds.ToString() + " milliseconds");
-            Console.WriteLine("Result for MultiplyKaratsubaSequential: " + result.ToString());
-            
-
-
+            if (AllowPrint)
+            {
+                Console.WriteLine("Elapsed time for MultiplyKaratsubaSequential: " + stopwatch1.Elapsed.ToString());
+                Console.WriteLine("Result for MultiplyKaratsubaSequential: " + Result.ToString());
+            }
         }
+
         public SynchronizedCollection<float> MultiplyKaratsubaSequentialRecursive(SynchronizedCollection<float> A, SynchronizedCollection<float> B)
         {
-           
-            SynchronizedCollection<float> result = new SynchronizedCollection<float>();
-            A = FixSize(A);
-            B = FixSize(B);
+            SynchronizedCollection<float> result = new();
+            //A = FixSize(A);
+            //B = FixSize(B);
             int m = A.Count;
             int n = B.Count;
-            int maxDegree = Math.Max(A.Count, B.Count);
-            if (maxDegree == 1)
+            int maxDegree = Math.Max(A.Count - 1, B.Count - 1) + 1;
+            if (maxDegree == 1) // return the remaining coefficient if the degree is 1
             {
-                if (A.Count == 0)
-                    result.Add(B[0]);
-                else if (B.Count == 0)
-                    result.Add(A[0]);
-                else
-                {
-                    result.Add(A[0] * B[0]);
-                }
-                return result;
-            }
-            int middle1 = A.Count/ 2;
-            int middle2 = B.Count / 2;
 
-            SynchronizedCollection<float> polynomial1L = GeneratePolynomialFromRange(A,0, middle1-1);
-            SynchronizedCollection<float> polynomial1H = GeneratePolynomialFromRange(A, middle1,m-1 );
-            SynchronizedCollection<float> polynomial1M = GenerateZeroPolynomial(middle1);
-            SynchronizedCollection<float> polynomial2L = GeneratePolynomialFromRange(B, 0, middle2-1);
-            SynchronizedCollection<float> polynomial2H=GeneratePolynomialFromRange(B,middle2, n-1);
-            SynchronizedCollection<float> polynomial2M = GenerateZeroPolynomial(middle2);
-            for(int i =0; i < middle1; i++)
-            {
-                polynomial1M[i] = polynomial1L[i] + polynomial1H[i];
-            }
-            for (int i = 0; i < middle2; i++)
-            {
-                polynomial2M[i] = polynomial2L[i] + polynomial2H[i];
-            }
+                result.Add(A[0] * B[0]);
 
-            var productL = MultiplyKaratsubaSequentialRecursive(polynomial1L, polynomial2L);
-            var productH = MultiplyKaratsubaSequentialRecursive(polynomial1H, polynomial2H);
-            var productM = MultiplyKaratsubaSequentialRecursive(polynomial1M, polynomial2M);
-
-            SynchronizedCollection<float> polynomialMiddle = GenerateZeroPolynomial((A.Count+B.Count)/2);
-            for (int i = 0; i < (A.Count + B.Count) / 2-1; ++i)
-            {
-                polynomialMiddle[i] = productM[i] - productL[i] - productH[i];
-            }
-           
-            result = GenerateZeroPolynomial(A.Count + B.Count-1);
-            for (int i = 0; i < (A.Count + B.Count) / 2-1; ++i)
-            {
-                result[i] += productL[i];
-                result[i + (A.Count + B.Count) / 2] += productH[i];
-                result[i + (A.Count + B.Count) / 4] += polynomialMiddle[i];
-            }
-            return result;
-        }
-        public async Task MultiplyKaratsubaParallel()
-        {
-            //TODO: check this https://stackoverflow.com/questions/16502997/karatsuba-multiplication-for-unequal-size-non-power-of-2-operands
-            //this.ResetResult();
-            //this.stopwatch = Stopwatch.StartNew();
-            Stopwatch stopwatch1 = Stopwatch.StartNew();
-            SynchronizedCollection<float> resultList = this.result.coefficients;
-
-            resultList.Clear();
-            SynchronizedCollection<float> resultRecursive = await Task.Run(() => MultiplyKaratsubaParallelRecursive(this.polynomial1.coefficients, this.polynomial2.coefficients));
-
-            //stopwatch.Stop();
-            stopwatch1.Stop();
-            int m = this.polynomial1.GetDegreePolynomial();
-            int n = this.polynomial2.GetDegreePolynomial();
-            for (int i = 0; i < m + n - 1; i++)
-            {
-                resultList.Add(resultRecursive[i]);
-            }
-
-            Console.WriteLine("Elapsed time for MultiplyKaratsubaParallel: " + stopwatch1.ElapsedMilliseconds.ToString() + " milliseconds");
-            Console.WriteLine("Result for MultiplyKaratsubaParallel: " + result.ToString());
-
-
-
-        }
-        public async Task<SynchronizedCollection<float>> MultiplyKaratsubaParallelRecursive(SynchronizedCollection<float> A, SynchronizedCollection<float> B)
-        {
-
-            SynchronizedCollection<float> result = new SynchronizedCollection<float>();
-            A = FixSize(A);
-            B = FixSize(B);
-            int m = A.Count;
-            int n = B.Count;
-            int maxDegree = Math.Max(A.Count, B.Count);
-            if (maxDegree == 1)
-            {
-                if (A.Count == 0)
-                    result.Add(B[0]);
-                else if (B.Count == 0)
-                    result.Add(A[0]);
-                else
-                {
-                    result.Add(A[0] * B[0]);
-                }
                 return result;
             }
             int middle1 = A.Count / 2;
@@ -257,20 +172,9 @@ namespace Lab5
                 polynomial2M[i] = polynomial2L[i] + polynomial2H[i];
             }
 
-
-            //var productL = MultiplyKaratsubaSequentialRecursive(polynomial1L, polynomial2L);
-            //var productH = MultiplyKaratsubaSequentialRecursive(polynomial1H, polynomial2H);
-            //var productM = MultiplyKaratsubaSequentialRecursive(polynomial1M, polynomial2M);
-          //  var tcs = new TaskCompletionSource<SynchronizedCollection<float>>();
-            //Task productLRes = Task.Run(() =>
-            //     MultiplyKaratsubaSequentialRecursive(polynomial1L, polynomial2L));
-            var productL = await Task.Run(() => MultiplyKaratsubaSequentialRecursive(polynomial1L, polynomial2L));
-            var productH = await Task.Run(() => MultiplyKaratsubaSequentialRecursive(polynomial1H, polynomial2H));
-            var productM = await Task.Run(() => MultiplyKaratsubaSequentialRecursive(polynomial1M, polynomial2M));
-
-
-            //var productH = MultiplyKaratsubaSequentialRecursive(polynomial1H, polynomial2H);
-           // var productM = MultiplyKaratsubaSequentialRecursive(polynomial1M, polynomial2M);
+            var productL = MultiplyKaratsubaSequentialRecursive(polynomial1L, polynomial2L);
+            var productH = MultiplyKaratsubaSequentialRecursive(polynomial1H, polynomial2H);
+            var productM = MultiplyKaratsubaSequentialRecursive(polynomial1M, polynomial2M);
 
             SynchronizedCollection<float> polynomialMiddle = GenerateZeroPolynomial((A.Count + B.Count) / 2);
             for (int i = 0; i < (A.Count + B.Count) / 2 - 1; ++i)
@@ -279,28 +183,109 @@ namespace Lab5
             }
 
             result = GenerateZeroPolynomial(A.Count + B.Count - 1);
+            int N = Math.Max(A.Count, B.Count);
             for (int i = 0; i < (A.Count + B.Count) / 2 - 1; ++i)
             {
                 result[i] += productL[i];
-                result[i + (A.Count + B.Count) / 2] += productH[i];
-                result[i + (A.Count + B.Count) / 4] += polynomialMiddle[i];
+                result[i + N] += productH[i];
+                result[i + N / 2] += polynomialMiddle[i];
             }
             return result;
         }
 
-        public SynchronizedCollection<float> GeneratePolynomialFromRange(SynchronizedCollection<float> polynomial,int start, int end)
+        public async Task MultiplyKaratsubaParallel()
         {
-            List<float> values = polynomial.ToList().GetRange(start, end-start+1);
-            SynchronizedCollection<float> polynomialSection = new SynchronizedCollection<float>();
-            for(int i = 0; i < end - start+1 ; i++)
+            //used this idea https://stackoverflow.com/questions/16502997/karatsuba-multiplication-for-unequal-size-non-power-of-2-operands
+            SynchronizedCollection<float> A = FixSize(this.Polynomial1.GetCopyCoefficients());
+            SynchronizedCollection<float> B = FixSize(this.Polynomial2.GetCopyCoefficients());
+            Stopwatch stopwatch1 = Stopwatch.StartNew();
+            SynchronizedCollection<float> resultList = this.Result.Coefficients;
+
+            resultList.Clear();
+            SynchronizedCollection<float> resultRecursive = await Task.Run(() => MultiplyKaratsubaParallelRecursive(A, B));
+
+            stopwatch1.Stop();
+            int m = this.Polynomial1.GetDegreePolynomial();
+            int n = this.Polynomial2.GetDegreePolynomial();
+            for (int i = 0; i < m + n - 1; i++)
+            {
+                resultList.Add(resultRecursive[i]);
+            }
+            if (AllowPrint)
+            {
+                Console.WriteLine("Elapsed time for MultiplyKaratsubaParallel: " + stopwatch1.Elapsed.ToString());
+                Console.WriteLine("Result for MultiplyKaratsubaParallel: " + Result.ToString());
+            }
+        }
+
+        public async Task<SynchronizedCollection<float>> MultiplyKaratsubaParallelRecursive(SynchronizedCollection<float> A, SynchronizedCollection<float> B)
+        {
+            SynchronizedCollection<float> result = new();
+            // A = FixSize(A);
+            // B = FixSize(B);
+            int m = A.Count;
+            int n = B.Count;
+            int maxDegree = Math.Max(A.Count - 1, B.Count - 1) + 1;
+            if (maxDegree == 1) // return the remaining coefficient if the degree is 1
+            {
+
+                result.Add(A[0] * B[0]);
+
+                return result;
+            }
+            int middle1 = A.Count / 2;
+            int middle2 = B.Count / 2;
+
+            SynchronizedCollection<float> polynomial1L = GeneratePolynomialFromRange(A, 0, middle1 - 1); //lower half of the first polynomial
+            SynchronizedCollection<float> polynomial1H = GeneratePolynomialFromRange(A, middle1, m - 1);//upper half of the first polynomial
+            SynchronizedCollection<float> polynomial1S = GenerateZeroPolynomial(middle1); //will contain the sums between the lower and the higher half of the first polynomial
+            SynchronizedCollection<float> polynomial2L = GeneratePolynomialFromRange(B, 0, middle2 - 1); //lower half of the second polynomial
+            SynchronizedCollection<float> polynomial2H = GeneratePolynomialFromRange(B, middle2, n - 1); //upper half of the second polynomial
+            SynchronizedCollection<float> polynomial2S = GenerateZeroPolynomial(middle2);//will contain the sums between the lower and the higher half of the second polynomial
+            for (int i = 0; i < middle1; i++)
+            {
+                polynomial1S[i] = polynomial1L[i] + polynomial1H[i]; //compute the sum between the halves of the first polynomial
+            }
+            for (int i = 0; i < middle2; i++)
+            {
+                polynomial2S[i] = polynomial2L[i] + polynomial2H[i];//compute the sum between the halves of the second polynomial
+            }
+
+            var productL = await Task.Run(() => MultiplyKaratsubaSequentialRecursive(polynomial1L, polynomial2L)); //get the lower half of the result recursively using the lower halves of the two polynomials
+            var productH = await Task.Run(() => MultiplyKaratsubaSequentialRecursive(polynomial1H, polynomial2H)); //get the upper half of the result recursively using the lower halves of the two polynomials
+            var productM = await Task.Run(() => MultiplyKaratsubaSequentialRecursive(polynomial1S, polynomial2S)); //get the upper half of the result recursively using the lower halves of the two polynomials
+
+            SynchronizedCollection<float> polynomialMiddle = GenerateZeroPolynomial((A.Count + B.Count) / 2);
+            for (int i = 0; i < (A.Count + B.Count) / 2 - 1; ++i)
+            {
+                polynomialMiddle[i] = productM[i] - productL[i] - productH[i]; //compute the middle part of the result polynomial
+            }
+
+            result = GenerateZeroPolynomial(A.Count + B.Count - 1);
+            int N = Math.Max(A.Count, B.Count);
+            for (int i = 0; i < (A.Count + B.Count) / 2 - 1; ++i)
+            {
+                result[i] += productL[i]; //add the lower part to the result polynomial
+                result[i + N] += productH[i]; //add the upper part to the result polynomial
+                result[i + N / 2] += polynomialMiddle[i]; //add the middle part to the result polynomial
+            }
+            return result;
+        }
+
+        public static SynchronizedCollection<float> GeneratePolynomialFromRange(SynchronizedCollection<float> polynomial, int start, int end)
+        {
+            List<float> values = polynomial.ToList().GetRange(start, end - start + 1);
+            SynchronizedCollection<float> polynomialSection = new();
+            for (int i = 0; i < end - start + 1; i++)
             {
                 polynomialSection.Add(values[i]);
             }
             return polynomialSection;
         }
-        public SynchronizedCollection<float> GenerateZeroPolynomial(int size)
+
+        public static SynchronizedCollection<float> GenerateZeroPolynomial(int size)
         {
-            SynchronizedCollection<float> polynomial = new SynchronizedCollection<float>();
+            SynchronizedCollection<float> polynomial = new();
             for (int i = 0; i < size; i++)
             {
                 polynomial.Add(0);
@@ -308,13 +293,11 @@ namespace Lab5
             return polynomial;
         }
 
-
         public SynchronizedCollection<float> FixSize(SynchronizedCollection<float> A)
         {
-            int size = A.Count();
-            if(!((size != 0) && ((size & (size - 1)) == 0)))
+            int size = A.Count;
+            if (!((size != 0) && ((size & (size - 1)) == 0)))
             {
-
             }
             int newSize = size;
             newSize--;
@@ -324,12 +307,11 @@ namespace Lab5
             newSize |= newSize >> 8;
             newSize |= newSize >> 16;
             newSize++;
-            for(int i = 0; i < newSize - size; i++)
+            for (int i = 0; i < newSize - size; i++)
             {
                 A.Add(0);
             }
             return A;
-
         }
     }
 }
