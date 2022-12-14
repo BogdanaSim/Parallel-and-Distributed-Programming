@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Lab6;
-
+//TODO: Change graph representation, one list should be enough
 Dictionary<string, SynchronizedCollection<string>> edgesOut = new() {
     ["1"] = new SynchronizedCollection<string> { "2" },
     ["2"] = new SynchronizedCollection<string> { "3"},

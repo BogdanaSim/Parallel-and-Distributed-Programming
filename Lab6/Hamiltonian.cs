@@ -62,12 +62,16 @@ namespace Lab6
         public string printCycle()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append("This is the Hamiltonian Cycle: ");
-            foreach(string v in HamiltonianCycle)
+            if (HamiltonianCycle.Count > 0)
             {
-                stringBuilder.Append(v).Append(" ");
+                stringBuilder.Append("This is the Hamiltonian Cycle: ");
+                foreach (string v in HamiltonianCycle)
+                {
+                    stringBuilder.Append(v).Append(" ");
+                }
+                return stringBuilder.ToString();
             }
-            return stringBuilder.ToString();
+            return "There is no Hamiltonian Cycle!";
         }
     }
 }
