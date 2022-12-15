@@ -11,6 +11,7 @@ namespace Lab5
         public Dictionary<int, List<(int, int)>> validPairs = new();
 
         public bool AllowPrint { get; set; } = false;
+        public TimeSpan timeSpan = new(0, 0, 0, 0);
 
         public Multiply(Polynomial polynomial1, Polynomial polynomial2)
         {
@@ -22,20 +23,20 @@ namespace Lab5
             for (int i = 0; i < m + n - 1; i++)
             {
                 resultList.Add(0);
-                validPairs.Add(i, new List<(int, int)>());
-                for (int k = 0; k < m; k++)
-                    for (int q = 0; q < n; q++)
-                    {
+                //validPairs.Add(i, new List<(int, int)>());
+                //for (int k = 0; k < m; k++)
+                //    for (int q = 0; q < n; q++)
+                //    {
 
-                        if (k + q == i)
-                        {
-                            validPairs[i].Add((k, q));
-                        }
-                    }
+                //        if (k + q == i)
+                //        {
+                //            validPairs[i].Add((k, q));
+                //        }
+                //    }
             }
             this.Result = new Polynomial(resultList);
 
-  
+
         }
 
         public void ResetResult()
@@ -61,19 +62,19 @@ namespace Lab5
             if (AllowPrint) //used to avoid the results for the first execution of this function
             {
                 Console.WriteLine("Elapsed time for MultiplyRegularSequential: " + stopwatch1.Elapsed.ToString());
-                Console.WriteLine("Result for MultiplyRegularSequential: " + Result.ToString());
+                //Console.WriteLine("Result for MultiplyRegularSequential: " + Result.ToString());
             }
         }
 
         public void MultiplyRegularParallel(int noTasks)
         {
             this.ResetResult();
-            
-            int noCoefficients = this.Result.GetDegreePolynomial() / noTasks;
-            int extra = this.Result.GetDegreePolynomial() % noTasks;
+            Stopwatch stopwatch1 = Stopwatch.StartNew();
+            int noCoefficients = (this.Result.GetDegreePolynomial() / 2) / noTasks;
+            int extra = (this.Result.GetDegreePolynomial() / 2) % noTasks;
             List<Task> tasks = new();
             int i0 = 0, j0 = 0;
-            Stopwatch stopwatch1 = Stopwatch.StartNew();
+
             for (int i = 0; i < noTasks; i++)
             {
                 j0 = i0 + noCoefficients;
@@ -90,30 +91,38 @@ namespace Lab5
             if (AllowPrint)
             {
                 Console.WriteLine("Elapsed time for MultiplyRegularParallel: " + stopwatch1.Elapsed.ToString());
-                Console.WriteLine("Result for MultiplyRegularParallel: " + Result.ToString());
+                //Console.WriteLine("Result for MultiplyRegularParallel: " + Result.ToString());
             }
         }
 
         public void MultiplyTaskRegularParallel(int i0, int j0)
         {
+            //Stopwatch stopwatch1 = Stopwatch.StartNew();
             int m = this.Polynomial1.GetDegreePolynomial();
             int n = this.Polynomial2.GetDegreePolynomial();
+            int M = Math.Min(n, m);
             SynchronizedCollection<float> resultList = this.Result.Coefficients;
-            for (int k = i0; k < j0; k++)
+            for (int i = i0; i < j0; i++)
                 //for (int i = 0; i < m; i++)
                 //{
-                    //int j = k - i;
-                    //if (j >= 0 && j < n) //check if the sum of the indexes is a valid degree for the result polynomial
-                    //{
-                    //    resultList[i + j] += this.Polynomial1.Coefficients[i] * this.Polynomial2.Coefficients[j];
-                    //}
-                    foreach (var pair in validPairs[k])
-                    {
-                        int p0 = pair.Item1, p1 = pair.Item2;
-                        resultList[p0 + p1] += this.Polynomial1.Coefficients[p0] * this.Polynomial2.Coefficients[p1];
+                //int j = k - i;
+                //if (j >= 0 && j < n) //check if the sum of the indexes is a valid degree for the result polynomial
+                //{
+                //    resultList[i + j] += this.Polynomial1.Coefficients[i] * this.Polynomial2.Coefficients[j];
+                //}
+                for (int j = 0; j < M; j++)
+                {
+                    resultList[i + j] += this.Polynomial1.Coefficients[i] * this.Polynomial2.Coefficients[j];
+                }
+            //foreach (var pair in validPairs[k])
+            //{
+            //    int p0 = pair.Item1, p1 = pair.Item2;
+            //    resultList[p0 + p1] += this.Polynomial1.Coefficients[p0] * this.Polynomial2.Coefficients[p1];
 
-                    }
-               // }
+            //}
+            // }
+            // stopwatch1.Stop();
+            // timeSpan = timeSpan.Add(stopwatch1.Elapsed);
         }
 
         public void MultiplyKaratsubaSequential()
@@ -135,7 +144,7 @@ namespace Lab5
             if (AllowPrint)
             {
                 Console.WriteLine("Elapsed time for MultiplyKaratsubaSequential: " + stopwatch1.Elapsed.ToString());
-                Console.WriteLine("Result for MultiplyKaratsubaSequential: " + Result.ToString());
+                // Console.WriteLine("Result for MultiplyKaratsubaSequential: " + Result.ToString());
             }
         }
 
@@ -214,7 +223,7 @@ namespace Lab5
             if (AllowPrint)
             {
                 Console.WriteLine("Elapsed time for MultiplyKaratsubaParallel: " + stopwatch1.Elapsed.ToString());
-                Console.WriteLine("Result for MultiplyKaratsubaParallel: " + Result.ToString());
+                //Console.WriteLine("Result for MultiplyKaratsubaParallel: " + Result.ToString());
             }
         }
 
@@ -251,9 +260,14 @@ namespace Lab5
                 polynomial2S[i] = polynomial2L[i] + polynomial2H[i];//compute the sum between the halves of the second polynomial
             }
 
-            var productL = await Task.Run(() => MultiplyKaratsubaSequentialRecursive(polynomial1L, polynomial2L)); //get the lower half of the result recursively using the lower halves of the two polynomials
-            var productH = await Task.Run(() => MultiplyKaratsubaSequentialRecursive(polynomial1H, polynomial2H)); //get the upper half of the result recursively using the lower halves of the two polynomials
-            var productM = await Task.Run(() => MultiplyKaratsubaSequentialRecursive(polynomial1S, polynomial2S)); //get the upper half of the result recursively using the lower halves of the two polynomials
+            
+            var productLTask =  Task.Run(() => MultiplyKaratsubaSequentialRecursive(polynomial1L, polynomial2L)); //get the lower half of the result recursively using the lower halves of the two polynomials
+            var productHTask =  Task.Run(() => MultiplyKaratsubaSequentialRecursive(polynomial1H, polynomial2H)); //get the upper half of the result recursively using the lower halves of the two polynomials
+            var productMTask =  Task.Run(() => MultiplyKaratsubaSequentialRecursive(polynomial1S, polynomial2S)); //get the upper half of the result recursively using the lower halves of the two polynomials
+            var productL = productLTask.Result; //get the lower half of the result recursively using the lower halves of the two polynomials
+            var productH = productHTask.Result;  //get the upper half of the result recursively using the lower halves of the two polynomials
+            var productM = productMTask.Result;  //get the upper half of the result recursively using the lower halves of the two polynomials
+
 
             SynchronizedCollection<float> polynomialMiddle = GenerateZeroPolynomial((A.Count + B.Count) / 2);
             for (int i = 0; i < (A.Count + B.Count) / 2 - 1; ++i)
