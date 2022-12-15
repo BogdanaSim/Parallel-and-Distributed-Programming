@@ -20,6 +20,6 @@ for(int i = 0; i < 5; i++)
 
     }
     hamiltonian.FindHamiltonianCycle();
-    hamiltonian.FindHamiltonianCycleParallel();
+    await hamiltonian.FindHamiltonianCycleParallel();
 }
 Console.WriteLine(hamiltonian.PrintCycle());

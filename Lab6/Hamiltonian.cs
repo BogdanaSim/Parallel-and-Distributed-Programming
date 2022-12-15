@@ -13,6 +13,7 @@ namespace Lab6
 
         private readonly string StartingVertex;
         public bool AllowPrint = false;
+        static SemaphoreSlim semaphoreSlim = new SemaphoreSlim(1, 1);
         public DirectedGraph Graph { get { return DirectedGraph; } }
         public SynchronizedCollection<string> visited = new();
         public SynchronizedCollection<string> HamiltonianCycle = new();
@@ -37,11 +38,11 @@ namespace Lab6
             return HamiltonianCycle;
         }
 
-        public SynchronizedCollection<string> FindHamiltonianCycleParallel()
+        public async Task<SynchronizedCollection<string>> FindHamiltonianCycleParallel()
         {
             HamiltonianCycle.Clear();
             Stopwatch stopwatch1 = Stopwatch.StartNew();
-            GoToVertexParallel(StartingVertex);
+            await GoToVertexParallel(StartingVertex);
             stopwatch1.Stop();
             if (AllowPrint)
             {
@@ -85,16 +86,26 @@ namespace Lab6
             visited.Remove(vertex);
         }
 
-        public void GoToVertexParallel(string vertex)
+        public async Task GoToVertexParallel(string vertex)
         {
-            lock (HamiltonianCycle)
-            {
+            //lock (HamiltonianCycle)
+            //{
+          //  await semaphoreSlim.WaitAsync();
+           // semaphoreSlim.Wait();
+            //try
+            //{
+
                 if (HamiltonianCycle.Count > 0)
-                {
-                    return;
-                }
+            {
+                return;
             }
-            visited.Add(vertex);
+            //}
+            //finally
+            //{
+               // semaphoreSlim.Release();
+           // }
+        //}
+        visited.Add(vertex);
             if (visited.Count != Graph.Size)
             {
                 SynchronizedCollection<string> EdgesOutVertex = Graph.GetEdgesForVertex(vertex);
@@ -105,26 +116,46 @@ namespace Lab6
 
                     if (!visited.Contains(v))
                     {
-                        tasks.Add(Task.Run(() => GoToVertexParallel(v)));
+                        //await semaphoreSlim.WaitAsync();
+                         tasks.Add(Task.Run( () =>  GoToVertexParallel(v))) ;
+                        //try
+                        //{
+                        //    await semaphoreSlim.WaitAsync();
+                          // Task.Run(() => GoToVertexParallel(v));
+                        //}
+                        //finally
+                        //{
+                        //    semaphoreSlim.Release();
+                        //}
 
+                        //Task res = Task.Run(()=>GoToVertexParallel(v));
                         //GoToVertex(v);
                     }
                 }
-                Task.WhenAll(tasks).Wait();
+                await Task.WhenAll(tasks);
 
             }
             else
             {
                 if (Graph.CheckIfEdgeExists(vertex, StartingVertex))
                 {
-                    lock (HamiltonianCycle)
-                    {
+                    
+                   //  await semaphoreSlim.WaitAsync();
+                    // lock (HamiltonianCycle)
+                    //{
+                    //try
+                    //{
                         foreach (string v in visited)
-                        {
-                            HamiltonianCycle.Add(v);
-                        }
-                        HamiltonianCycle.Add(StartingVertex);
+                    {
+                        HamiltonianCycle.Add(v);
                     }
+                    HamiltonianCycle.Add(StartingVertex);
+                   // }
+                    //finally
+                    //{
+                    //    semaphoreSlim.Release();
+                    //}
+                    // }
                 }
             }
             visited.Remove(vertex);
