@@ -9,55 +9,58 @@ namespace Lab6
     public class DirectedGraph
     {
         private readonly int size;
-        private readonly Dictionary<string, SynchronizedCollection<string>> edgesIn = new();
-        private readonly Dictionary<string, SynchronizedCollection<string>> edgesOut = new();
+        private readonly Dictionary<string, SynchronizedCollection<string>> edges = new();
 
-        public Dictionary<string, SynchronizedCollection<string>> EdgesIn { get { return edgesIn; } }
-        public Dictionary<string, SynchronizedCollection<string>> EdgesOut { get { return edgesOut; } }
+        public Dictionary<string, SynchronizedCollection<string>> Edges { get { return edges; } }
         public int Size { get { return size; } }    
 
-        public DirectedGraph(int size, Dictionary<string, SynchronizedCollection<string>> edgesIn, Dictionary<string, SynchronizedCollection<string>> edgesOut)
+        public DirectedGraph(int size, Dictionary<string, SynchronizedCollection<string>> edges)
         {
             this.size = size;
-            this.edgesIn = edgesIn;
-            this.edgesOut = edgesOut;
+            this.edges = edges;
         }
 
-        public bool CheckIfEdgeInExists(string v1, string v2)
+
+        public bool CheckIfEdgeExists(string v1, string v2)
         {
-            if (edgesIn.ContainsKey(v1))
+            if (edges.ContainsKey(v1))
             {
-                if (edgesIn[v1].Contains(v2)) return true;
-            }
-            return false;
-        }
-        public bool CheckIfEdgeOutExists(string v1, string v2)
-        {
-            if (edgesOut.ContainsKey(v1))
-            {
-                if (edgesOut[v1].Contains(v2)) return true;
+                if (edges[v1].Contains(v2)) return true;
             }
             return false;
         }
 
-        public SynchronizedCollection<string> GetEdgesInForVertex(string v1)
+        public SynchronizedCollection<string> GetEdgesForVertex(string v1)
         {
-            if(edgesIn.ContainsKey(v1))
+            if (edges.ContainsKey(v1))
             {
-                return edgesIn[v1];
+                return edges[v1];
             }
             return new SynchronizedCollection<string>();
         }
 
-        public SynchronizedCollection<string> GetEdgesOutForVertex(string v1)
+        public static DirectedGraph CreateHamiltonianGraph(int size)
         {
-            if (edgesIn.ContainsKey(v1))
+            Dictionary<string, SynchronizedCollection<string>> edges = new();
+            for(int i = 0; i < size-1; i++)
             {
-                return edgesOut[v1];
+              
+                    edges[i.ToString()] = new SynchronizedCollection<string>() {(i+1).ToString() };
+              
+              
             }
-            return new SynchronizedCollection<string>();
-        }
+            edges[(size-1).ToString()] = new SynchronizedCollection<string>() { "0" };
+            Random random = new Random();
+            for (int i = 0; i < size / 2; i++)
+            {
+                int node1 = random.Next(size - 1);
+                int node2 = random.Next(size - 1);
 
+                edges[node1.ToString()].Add(node2.ToString());
+            }
+            return new DirectedGraph(size, edges);
+
+        }
         
     }
 

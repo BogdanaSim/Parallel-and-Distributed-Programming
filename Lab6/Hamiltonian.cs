@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,36 +12,60 @@ namespace Lab6
         private readonly DirectedGraph DirectedGraph;
 
         private readonly string StartingVertex;
+        public bool AllowPrint = false;
         public DirectedGraph Graph { get { return DirectedGraph; } }
         public SynchronizedCollection<string> visited = new();
         public SynchronizedCollection<string> HamiltonianCycle = new();
 
-        public Hamiltonian(DirectedGraph directedGraph)
+        public Hamiltonian(DirectedGraph directedGraph, string startingVertex)
         {
-            
+
             DirectedGraph = directedGraph;
-            StartingVertex = Graph.EdgesOut.First().Key;
+            StartingVertex = startingVertex;
         }
 
         public SynchronizedCollection<string> FindHamiltonianCycle()
         {
-
-
+            HamiltonianCycle.Clear();
+            Stopwatch stopwatch1 = Stopwatch.StartNew();
             GoToVertex(StartingVertex);
+            stopwatch1.Stop();
+            if (AllowPrint)
+            {
+                Console.WriteLine("Elapsed time for FindHamiltonianCycle: " + stopwatch1.Elapsed.ToString());
+            }
+            return HamiltonianCycle;
+        }
+
+        public SynchronizedCollection<string> FindHamiltonianCycleParallel()
+        {
+            HamiltonianCycle.Clear();
+            Stopwatch stopwatch1 = Stopwatch.StartNew();
+            GoToVertexParallel(StartingVertex);
+            stopwatch1.Stop();
+            if (AllowPrint)
+            {
+                Console.WriteLine("Elapsed time for FindHamiltonianCycleParallel: " + stopwatch1.Elapsed.ToString());
+            }
             return HamiltonianCycle;
         }
 
         public void GoToVertex(string vertex)
         {
-            visited.Add(vertex);
-            if(visited.Count!=Graph.Size)
+            if (HamiltonianCycle.Count > 0)
             {
-                SynchronizedCollection<string> EdgesOutVertex = Graph.GetEdgesOutForVertex(vertex);
+                return;
+            }
+            visited.Add(vertex);
+            if (visited.Count != Graph.Size)
+            {
+                SynchronizedCollection<string> EdgesOutVertex = Graph.GetEdgesForVertex(vertex);
 
-             
-                foreach(string v in EdgesOutVertex)
+
+                foreach (string v in EdgesOutVertex)
                 {
-                    if(!visited.Contains(v)) {
+                    if (!visited.Contains(v))
+                    {
                         GoToVertex(v);
                     }
                 }
@@ -48,18 +73,64 @@ namespace Lab6
             }
             else
             {
-                if (Graph.CheckIfEdgeInExists(StartingVertex, vertex))
+                if (Graph.CheckIfEdgeExists(vertex, StartingVertex))
                 {
-                    foreach(string v in visited)
+                    foreach (string v in visited)
                     {
                         HamiltonianCycle.Add(v);
                     }
                     HamiltonianCycle.Add(StartingVertex);
                 }
             }
+            visited.Remove(vertex);
         }
 
-        public string printCycle()
+        public void GoToVertexParallel(string vertex)
+        {
+            lock (HamiltonianCycle)
+            {
+                if (HamiltonianCycle.Count > 0)
+                {
+                    return;
+                }
+            }
+            visited.Add(vertex);
+            if (visited.Count != Graph.Size)
+            {
+                SynchronizedCollection<string> EdgesOutVertex = Graph.GetEdgesForVertex(vertex);
+
+                List<Task> tasks = new();
+                foreach (string v in EdgesOutVertex)
+                {
+
+                    if (!visited.Contains(v))
+                    {
+                        tasks.Add(Task.Run(() => GoToVertexParallel(v)));
+
+                        //GoToVertex(v);
+                    }
+                }
+                Task.WhenAll(tasks).Wait();
+
+            }
+            else
+            {
+                if (Graph.CheckIfEdgeExists(vertex, StartingVertex))
+                {
+                    lock (HamiltonianCycle)
+                    {
+                        foreach (string v in visited)
+                        {
+                            HamiltonianCycle.Add(v);
+                        }
+                        HamiltonianCycle.Add(StartingVertex);
+                    }
+                }
+            }
+            visited.Remove(vertex);
+        }
+
+        public string PrintCycle()
         {
             StringBuilder stringBuilder = new StringBuilder();
             if (HamiltonianCycle.Count > 0)
