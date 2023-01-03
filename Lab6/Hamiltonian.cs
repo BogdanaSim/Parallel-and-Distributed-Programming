@@ -9,14 +9,14 @@ namespace Lab6
 {
     public class Hamiltonian
     {
+       
         private readonly DirectedGraph DirectedGraph;
-
         private readonly string StartingVertex;
         public bool AllowPrint = false;
-        static SemaphoreSlim semaphoreSlim = new SemaphoreSlim(1, 1);
         public DirectedGraph Graph { get { return DirectedGraph; } }
         public SynchronizedCollection<string> visited = new();
         public SynchronizedCollection<string> HamiltonianCycle = new();
+     
 
         public Hamiltonian(DirectedGraph directedGraph, string startingVertex)
         {
@@ -25,30 +25,57 @@ namespace Lab6
             StartingVertex = startingVertex;
         }
 
+        public Hamiltonian(DirectedGraph directedGraph,string startingVertex, SynchronizedCollection<string> visited, SynchronizedCollection<string> hamiltonianCycle)
+        {
+            DirectedGraph = directedGraph;
+            StartingVertex = startingVertex;
+            this.visited = visited;
+            HamiltonianCycle = hamiltonianCycle;
+        }
+
         public SynchronizedCollection<string> FindHamiltonianCycle()
         {
-            HamiltonianCycle.Clear();
+            //HamiltonianCycle.Clear();
             Stopwatch stopwatch1 = Stopwatch.StartNew();
             GoToVertex(StartingVertex);
             stopwatch1.Stop();
             if (AllowPrint)
             {
                 Console.WriteLine("Elapsed time for FindHamiltonianCycle: " + stopwatch1.Elapsed.ToString());
+              //  Console.WriteLine("Result for FindHamiltonianCycle: " + PrintCycle());
             }
             return HamiltonianCycle;
         }
 
-        public async Task<SynchronizedCollection<string>> FindHamiltonianCycleParallel()
+        public void ResetResult()
         {
             HamiltonianCycle.Clear();
+            visited.Clear();
+        }
+
+        public async Task<(SynchronizedCollection<string>,DirectedGraph)> FindHamiltonianCycleParallel()
+        {
+            //HamiltonianCycle.Clear();
             Stopwatch stopwatch1 = Stopwatch.StartNew();
-            await GoToVertexParallel(StartingVertex);
+            await GoToVertexParallel(StartingVertex,0);
             stopwatch1.Stop();
             if (AllowPrint)
             {
                 Console.WriteLine("Elapsed time for FindHamiltonianCycleParallel: " + stopwatch1.Elapsed.ToString());
+               // Console.WriteLine("Result for FindHamiltonianCycleParallel: "+PrintCycle());
             }
-            return HamiltonianCycle;
+      
+            return (HamiltonianCycle,Graph);
+        }
+
+        public Hamiltonian GenerateHamiltonian()
+        {
+            SynchronizedCollection<string> vistitedNew = new SynchronizedCollection<string>();
+            foreach(string v in visited)
+            {
+                vistitedNew.Add(v);
+            }
+            return new Hamiltonian(Graph, StartingVertex, vistitedNew, HamiltonianCycle);
         }
 
         public void GoToVertex(string vertex)
@@ -86,90 +113,113 @@ namespace Lab6
             visited.Remove(vertex);
         }
 
-        public async Task GoToVertexParallel(string vertex)
+        public async Task GoToVertexParallel(string vertex,int steps)
         {
-            //lock (HamiltonianCycle)
-            //{
-          //  await semaphoreSlim.WaitAsync();
-           // semaphoreSlim.Wait();
-            //try
-            //{
+            lock (HamiltonianCycle)
+            {
 
                 if (HamiltonianCycle.Count > 0)
-            {
-                return;
+                {
+                    return;
+                }
+
             }
-            //}
-            //finally
-            //{
-               // semaphoreSlim.Release();
-           // }
-        //}
-        visited.Add(vertex);
+            if (steps < 2)
+            {
+                visited.Add(vertex);
+                if (visited.Count != Graph.Size)
+                {
+                    SynchronizedCollection<string> EdgesOutVertex = Graph.GetEdgesForVertex(vertex);
+
+                    List<Task> tasks = new List<Task>();
+                    foreach (string v in EdgesOutVertex)
+                    {
+                   
+
+                        if (!visited.Contains(v))
+                        {
+
+                            tasks.Add(Task.Run(() => this.GenerateHamiltonian().GoToVertexParallel(v,steps+1)));
+
+                        }
+                    }
+                    await Task.WhenAll(tasks);
+
+                }
+                else
+                {
+                    if (Graph.CheckIfEdgeExists(vertex, StartingVertex))
+                    {
+
+                        lock (HamiltonianCycle)
+                        {
+
+                            foreach (string v in visited)
+                            {
+                                HamiltonianCycle.Add(v);
+                            }
+                            HamiltonianCycle.Add(StartingVertex);
+                        }
+
+                    }
+
+                }
+            }
+            else
+            {
+                this.GenerateHamiltonian().GoToVertexWithLock(vertex);
+            }
+          //  visited.Remove(vertex);
+        }
+        public void GoToVertexWithLock(string vertex)
+        {
+            lock (HamiltonianCycle)
+            {
+                if (HamiltonianCycle.Count > 0)
+                {
+                    return;
+                }
+            }
+            visited.Add(vertex);
             if (visited.Count != Graph.Size)
             {
                 SynchronizedCollection<string> EdgesOutVertex = Graph.GetEdgesForVertex(vertex);
 
-                List<Task> tasks = new();
+
                 foreach (string v in EdgesOutVertex)
                 {
-
                     if (!visited.Contains(v))
                     {
-                        //await semaphoreSlim.WaitAsync();
-                         tasks.Add(Task.Run( () =>  GoToVertexParallel(v))) ;
-                        //try
-                        //{
-                        //    await semaphoreSlim.WaitAsync();
-                          // Task.Run(() => GoToVertexParallel(v));
-                        //}
-                        //finally
-                        //{
-                        //    semaphoreSlim.Release();
-                        //}
-
-                        //Task res = Task.Run(()=>GoToVertexParallel(v));
-                        //GoToVertex(v);
+                        GoToVertexWithLock(v);
                     }
                 }
-                await Task.WhenAll(tasks);
 
             }
             else
             {
-                if (Graph.CheckIfEdgeExists(vertex, StartingVertex))
+                if (Graph.CheckIfEdgeExists(vertex,StartingVertex))
                 {
-                    
-                   //  await semaphoreSlim.WaitAsync();
-                    // lock (HamiltonianCycle)
-                    //{
-                    //try
-                    //{
-                        foreach (string v in visited)
+                    lock (HamiltonianCycle)
                     {
-                        HamiltonianCycle.Add(v);
+                        foreach (string v in visited)
+                        {
+                            HamiltonianCycle.Add(v);
+                        }
+                        HamiltonianCycle.Add(StartingVertex);
                     }
-                    HamiltonianCycle.Add(StartingVertex);
-                   // }
-                    //finally
-                    //{
-                    //    semaphoreSlim.Release();
-                    //}
-                    // }
                 }
             }
             visited.Remove(vertex);
         }
-
         public string PrintCycle()
         {
-            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilder = new StringBuilder(" ");
             if (HamiltonianCycle.Count > 0)
             {
-                stringBuilder.Append("This is the Hamiltonian Cycle: ");
+               // stringBuilder.Append("This is the Hamiltonian Cycle: ");
                 foreach (string v in HamiltonianCycle)
                 {
-                    stringBuilder.Append(v).Append(" ");
+                    stringBuilder.Append(v+" ");
                 }
                 return stringBuilder.ToString();
             }
